@@ -10,9 +10,9 @@
 //
 // export default BackImage
 
-import React, { Component } from "react"
-import "./BackImage.css"
-import { Jumbotron, Container } from "reactstrap"
+import React from 'react';
+import './BackImage.css';
+import { Jumbotron, Container } from 'reactstrap';
 
 const BackImage = props => {
   return (
@@ -28,7 +28,7 @@ const BackImage = props => {
         </Container>
       </Jumbotron>
     </div>
-  )
-}
+  );
+};
 
-export default BackImage
+export default BackImage;
