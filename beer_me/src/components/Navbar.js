@@ -1,40 +1,78 @@
-import React, { Component } from "react"
-import { Input, Menu } from "semantic-ui-react"
+import React from 'react';
 
-class Navbar extends Component {
-  state = { activeItem: "home" }
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap';
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from 'react-router-dom';
 
+export default class Example extends React.Component {
+  state = {
+    isOpen: false
+  };
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
   render() {
-    const { activeItem } = this.state
-
     return (
-      <Menu secondary>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="Sign Up"
-          active={activeItem === "messages"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="Login"
-          active={activeItem === "friends"}
-          onClick={this.handleItemClick}
-        />
-
-        <Menu.Item
-          name="Logout"
-          active={activeItem === "logout"}
-          onClick={this.handleItemClick}
-        />
-      </Menu>
-    )
+      // <Router>
+      <div>
+        <Navbar color="primary" dark expand="md">
+          <NavbarBrand href="/">BeerMe</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <Route
+                path="/profile"
+                component={() => (
+                  <NavItem>
+                    <NavLink href="/login" className="nav-link">
+                      Logout
+                    </NavLink>
+                  </NavItem>
+                )}
+              />
+              <Route
+                path="/login"
+                component={() => (
+                  <NavItem>
+                    <NavLink href="/signup" className="nav-link">
+                      Signup
+                    </NavLink>
+                  </NavItem>
+                )}
+              />
+              <Route
+                path="/cheers"
+                component={() => (
+                  <NavItem>
+                    <NavLink href="/login" className="nav-link">
+                      Login
+                    </NavLink>
+                    <NavLink href="/signup" className="nav-link">
+                      Signup
+                    </NavLink>
+                  </NavItem>
+                )}
+              />
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+      // </Router>
+    );
   }
 }
-
-export default Navbar
