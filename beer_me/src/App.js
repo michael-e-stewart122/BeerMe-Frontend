@@ -1,13 +1,14 @@
-import React, { Component } from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-import Layout from "./components/Layout"
-import Navbar from "./components/Navbar"
-import BackImage from "./components/BackImage"
-import Searching from "./components/Searching"
+import Layout from './components/Layout/Layout';
+import Navbar from './components/Navbar/Navbar';
+import BackImage from './components/BackImage/BackImage';
+import Searching from './components/Searching/Searching';
 // import components here
 // define baseURL here
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -18,8 +19,8 @@ class App extends Component {
         <Layout />
         <Searching />
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
