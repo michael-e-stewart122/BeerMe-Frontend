@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Layout from './components/Layout';
-import Navbar from './components/Navbar';
-import BackImage from './components/BackImage';
-import Searching from './components/Searching';
+import Layout from './components/Layout/Layout';
+import Navbar from './components/Navbar/Navbar';
+import BackImage from './components/BackImage/BackImage';
+import Searching from './components/Searching/Searching';
 // import components here
 // define baseURL here
 //
 // /////// enewwwwwww
 // import React from 'react';
-import Login from './components/Login';
+import Login from './components/Login/Login';
 // import TopNav from './components/TopNav';
 // import Signup from './components/Signup';
 // import UserProfile from './components/UserProfile';
