@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Grid, Image, Container } from 'semantic-ui-react';
 
 import {
   Row,
@@ -19,15 +18,14 @@ const Cards = () => (
       <Card>
         <CardImg
           top
-          width="10%"
           src="http://microbrewr.com/wp-content/uploads/2014/11/21st-amendment-logo.jpg"
           alt="Card image cap"
         />
         <CardBody>
-          <CardTitle>Brewery Of the Week</CardTitle>
-          <CardSubtitle>21st Amendment</CardSubtitle>
-          <CardText>located at blah blah blah</CardText>
-          <Button>Check It Out!</Button>
+          <CardTitle>Find a Beer!</CardTitle>
+          {/* <CardSubtitle>21st Amendment</CardSubtitle> */}
+          {/* <CardText>located at blah blah blah</CardText> */}
+          <Button href="/beers">Discover</Button>
         </CardBody>
       </Card>
     </Col>
@@ -35,15 +33,14 @@ const Cards = () => (
       <Card>
         <CardImg
           top
-          width="10%"
           src="http://microbrewr.com/wp-content/uploads/2014/11/21st-amendment-logo.jpg"
           alt="Card image cap"
         />
         <CardBody>
-          <CardTitle>Brewery Of the Week</CardTitle>
-          <CardSubtitle>21st Amendment</CardSubtitle>
-          <CardText>located at blah blah blah</CardText>
-          <Button>Check It Out!</Button>
+          <CardTitle>Find a Brewery!</CardTitle>
+          {/* <CardSubtitle>21st Amendment</CardSubtitle> */}
+          {/* <CardText>located at blah blah blah</CardText> */}
+          <Button>Discover</Button>
         </CardBody>
       </Card>
     </Col>
@@ -51,14 +48,13 @@ const Cards = () => (
       <Card>
         <CardImg
           top
-          width="10%"
           src="http://microbrewr.com/wp-content/uploads/2014/11/21st-amendment-logo.jpg"
           alt="Card image cap"
         />
         <CardBody>
           <CardTitle>Brewery Of the Week</CardTitle>
-          <CardSubtitle>21st Amendment</CardSubtitle>
-          <CardText>located at blah blah blah</CardText>
+          {/* <CardSubtitle>21st Amendment</CardSubtitle> */}
+          {/* <CardText>located at address</CardText> */}
           <Button>Check It Out!</Button>
         </CardBody>
       </Card>

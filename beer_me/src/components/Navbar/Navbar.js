@@ -68,6 +68,19 @@ export default class Example extends React.Component {
                   </NavItem>
                 )}
               />
+              <Route
+                path="/beers"
+                component={() => (
+                  <NavItem>
+                    <NavLink href="/login" className="nav-link">
+                      Login
+                    </NavLink>
+                    <NavLink href="/signup" className="nav-link">
+                      Signup
+                    </NavLink>
+                  </NavItem>
+                )}
+              />
             </Nav>
           </Collapse>
         </Navbar>
