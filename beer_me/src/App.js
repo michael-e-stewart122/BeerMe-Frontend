@@ -9,6 +9,8 @@ import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
 import BeerPage from './components/BeerPage/BeerPage';
+import BreweryPage from './components/BreweryPage/BreweryPage';
+import FeatureBreweryPage from './components/FeatureBreweryPage/FeatureBreweryPage';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
@@ -22,6 +24,12 @@ export const App = () => {
           <Route path="/login" component={Login} />
           <Route path="/cheers" render={props => <Main />} />
           <Route path="/beers" render={props => <BeerPage />} />
+          <Route exact path="/breweries" render={props => <BreweryPage />} />
+          <Route
+            exact
+            path="/breweries/:id"
+            render={props => <FeatureBreweryPage />}
+          />
         </div>
       </Router>
     </div>
