@@ -5,10 +5,13 @@ import {
   USER_SIGNUP_PENDING,
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAILED,
-  USER_LOGOUT
+  USER_LOGOUT,
+  GET_AUTH_SUCCESS,
+  GET_AUTH_FAILED
 } from '../actions/auth_actions';
 
 let initialState = {
+  isLoggedIn: false,
   isLoading: false,
   user: {},
   showLoginError: false,
@@ -26,6 +29,7 @@ export default (state = initialState, action) => {
         ...state,
         user: action.payload.user,
         token: action.payload.token,
+        isLoggedIn: true,
         isLoading: false
       };
     case USER_LOGIN_FAILED:
@@ -37,6 +41,18 @@ export default (state = initialState, action) => {
     case USER_SIGNUP_FAILED:
       return { ...state, isLoading: false, showSignupError: true };
     case USER_LOGOUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+        isLoading: false,
+        user: {},
+        showLoginError: false,
+        showSignupError: false
+      };
+    case GET_AUTH_SUCCESS:
+      // console.log(action.payload, 'reducer payload');
+      return { ...state, user: action.payload };
+    case GET_AUTH_FAILED:
       return { ...state };
     default:
       return state;

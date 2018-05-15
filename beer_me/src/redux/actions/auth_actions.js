@@ -1,6 +1,8 @@
 import decode from 'jwt-decode';
 import authenticate from '../../api/token';
 import getUser from '../../api/getUser';
+import env from '../../env';
+import checkAuthentication from '../../utils/checkAuthentication';
 
 export const USER_LOGIN_PENDING = 'USER_LOGIN_PENDING';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
@@ -11,6 +13,9 @@ export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS';
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED';
 
 export const USER_LOGOUT = 'USER_LOGOUT';
+
+export const GET_AUTH_SUCCESS = 'GET_AUTH_SUCCESS';
+export const GET_AUTH_FAILED = 'GET_AUTH_FAILED';
 
 const BASE_URL = 'http://localhost:8000';
 
@@ -51,14 +56,7 @@ export const userSignup = ({ newUser }, history) => {
       localStorage.setItem('token', token);
       const { sub: userId } = decode(token);
       const user = await getUser(userId, { token });
-      // let response = await fetch(`${BASE_URL}/users`, {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(newUser)
-      // });
-      // const { token } = await response;
-      console.log('hey');
-      // let isSignedUp = await response.json();
+
       history.push('/login', user);
       dispatch({
         type: USER_SIGNUP_SUCCESS,
@@ -119,5 +117,53 @@ export const userLogout = () => {
     }
   };
 };
+
+export const getAuth = () => {
+  return async dispatch => {
+    try {
+      const authentication = async () => {
+        return await checkAuthentication({
+          baseUrl: env.API_BASE_URL
+        });
+      };
+      const auth = Promise.resolve(authentication());
+      // console.log('auth actions', await auth);
+      // const initialState = getInitialState(auth);
+      // console.log(await initialState);
+      let { token, user } = await auth;
+      dispatch({
+        type: 'GET_AUTH_SUCCESS',
+        payload: {
+          isLoggedIn: true,
+          token: token,
+          authenticatedUserId: user.id,
+          usersById: {
+            [user.id]: user
+          }
+        }
+      });
+    } catch (error) {
+      dispatch({ type: GET_AUTH_FAILED, payload: error });
+    }
+  };
+};
+//
+// const getInitialState = async authentication => {
+//   let result = await authentication;
+//   return await result;
+// };
+
+// const getInitialState = async authentication => {
+//   let { token, user } = await authentication;
+//   return {
+//     auth: {
+//       token: token,
+//       authenticatedUserId: user.id,
+//       usersById: {
+//         [user.id]: user
+//       }
+//     }
+//   };
+// };
 
 export default userLogin;

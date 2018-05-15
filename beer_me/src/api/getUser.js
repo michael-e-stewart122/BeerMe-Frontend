@@ -3,11 +3,8 @@ import env from '../env';
 
 export default async function getUser(id, { token }) {
   try {
-    console.log('token', token);
-    console.log('do we get here????? 555666');
     // const headers = isEmpty(token) ? {} : { Authorization: `Bearer ${token}` };
     const headers = { Authorization: `Bearer ${token}` };
-    console.log(headers, 'headers');
     const response = await fetch(`${env.API_BASE_URL}/users/${id}`, {
       headers
     });

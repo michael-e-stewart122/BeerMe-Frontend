@@ -3,28 +3,24 @@ import { NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 import { userLogout } from '../../redux/actions/auth_actions';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 class NavbarComponent extends Component {
-  static defaultProps = {
-    userLogout: userLogout
-  };
   handleLogout = e => {
     e.preventDefault();
-    // console.log(this.props.history);
-    // console.log(userLogout());
-    userLogout();
-    localStorage.removeItem('token');
+    this.props.userLogout();
   };
   render() {
     console.log(this.props, 'props inside the navbar compnent');
     return (
-      <div>
+      <div class="navish">
         <Menu inverted>
           <Menu.Item>
             <NavLink exact to="/">
               Home
             </NavLink>
           </Menu.Item>
-          {this.props.user !== undefined ? (
+          {this.props.isLoggedIn ? (
             <Menu.Item>
               <NavLink exact to="/" onClick={this.handleLogout}>
                 Logout
@@ -37,7 +33,7 @@ class NavbarComponent extends Component {
               </NavLink>
             </Menu.Item>
           )}
-          {this.props.user === {} ? null : (
+          {this.props.isLoggedIn ? null : (
             <Menu.Item link={false}>
               <NavLink exact to="/signup">
                 Sign Up
@@ -49,14 +45,16 @@ class NavbarComponent extends Component {
     );
   }
 }
-function mapStateToProps(state) {
-  console.log('login state2', state);
-  const { user } = state.auth;
-  return { hey: 'guy' };
-  //   {
-  // showLoginError: state.auth.showLoginError,
-  // authenticatedUser: selectAuthenticatedUser(state)
-  //  };
+
+function mapDispatchToProps(dispatch) {
+  return {
+    userLogout: bindActionCreators(userLogout, dispatch)
+  };
 }
 
-export default connect(mapStateToProps)(NavbarComponent);
+function mapStateToProps(state) {
+  const { isLoggedIn } = state.auth;
+  return { isLoggedIn };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent);

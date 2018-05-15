@@ -10,39 +10,27 @@ import Signup from './components/Signup/Signup';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import { Provider } from 'react-redux';
 import { fetchBeers } from './redux/actions/beers';
+import { getAuth } from './redux/actions/auth_actions';
+import auth_actions from './redux/actions/auth_actions';
+import { connect } from 'react-redux';
+
 import setupStore from './redux/store';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 const store = setupStore();
 
 store.dispatch(fetchBeers());
-
-function getInitialState(authentication) {
-  return {
-    auth: {
-      token: authentication.token,
-      authenticatedUserId: authentication.user.id,
-      usersById: {
-        [authentication.user.id]: authentication.user
-      }
-    }
-  };
-}
+store.dispatch(getAuth());
 
 export default class App extends Component {
   render() {
+    console.log(this.state);
     return (
       <div>
         <Provider store={store}>
           <Router>
             <div>
-              <Navbar
-                authenticatedUser={
-                  this.props.authentication !== null
-                    ? this.props.authentication.user
-                    : { authentication: false }
-                }
-              />
+              <Navbar />
               <Route
                 exact
                 path="/"
@@ -59,3 +47,9 @@ export default class App extends Component {
     );
   }
 }
+
+const mapDispatchToProps = () => {
+  return { auth: auth_actions.getAuth() };
+};
+
+connect(mapDispatchToProps)(App);

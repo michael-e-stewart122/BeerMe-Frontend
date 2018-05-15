@@ -8,7 +8,6 @@ export default async function checkAuthentication({ baseUrl }) {
     const token = localStorage.getItem('token');
 
     if (isEmpty(token)) {
-      console.log('heyyyooo');
       localStorage.removeItem('token');
       return null;
     }

@@ -13,6 +13,7 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { userLogin } from '../../redux/actions/auth_actions';
+import { userLogout } from '../../redux/actions/auth_actions';
 import selectAuthenticatedUser from '../../redux/selectors/selectAuthenticatedUser';
 
 class Login extends Component {
@@ -33,11 +34,6 @@ class Login extends Component {
       this.props.history
     );
     // console.log('proooops', this.props.history);
-  };
-
-  handleLogout = e => {
-    e.preventDefault();
-    console.log(this.props);
   };
 
   render() {
@@ -101,7 +97,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    userLogin: bindActionCreators(userLogin, dispatch)
+    userLogin: bindActionCreators(userLogin, dispatch),
+    userLogout: bindActionCreators(userLogout, dispatch)
   };
 }
 
