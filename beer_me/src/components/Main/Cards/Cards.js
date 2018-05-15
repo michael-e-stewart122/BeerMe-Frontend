@@ -40,7 +40,7 @@ const Cards = () => (
           <CardTitle>Find a Brewery!</CardTitle>
           {/* <CardSubtitle>21st Amendment</CardSubtitle> */}
           {/* <CardText>located at blah blah blah</CardText> */}
-          <Button>Discover</Button>
+          <Button href="/breweries">Discover</Button>
         </CardBody>
       </Card>
     </Col>

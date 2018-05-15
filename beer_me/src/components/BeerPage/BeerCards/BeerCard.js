@@ -16,7 +16,7 @@ import {
 import './BeerCard.css';
 const BeerCard = props => {
   let { id, beer_name, style, abv, ibu } = props.beer;
-  console.log(props.beer);
+  console.log('props.beer', props.beer);
   return (
     <Col sm="4">
       <Card className="beer-card">
