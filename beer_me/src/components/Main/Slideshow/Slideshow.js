@@ -7,7 +7,7 @@ import {
   CarouselCaption
 } from 'reactstrap';
 
-// import './Slideshow.css';
+import './Slideshow.css';
 
 import brewery1 from '../../../public/images/brewery1.jpg';
 import brewery2 from '../../../public/images/brewery2.jpg';

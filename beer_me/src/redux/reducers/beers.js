@@ -14,7 +14,7 @@ const initialState = [];
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_BEERS_SUCCESS:
-      return [...payload];
+      return payload;
     // case FETCH_BEERS_FAILED:
     //   return payload
     // case CREATE_BEER_SUCCESS:

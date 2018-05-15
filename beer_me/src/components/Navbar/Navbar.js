@@ -1,91 +1,60 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
+import { userLogout } from '../../redux/actions/auth_actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Link
-} from 'react-router-dom';
-
-export default class Example extends React.Component {
-  state = {
-    isOpen: false
-  };
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+class NavbarComponent extends Component {
+  handleLogout = e => {
+    e.preventDefault();
+    this.props.userLogout();
   };
   render() {
+    console.log(this.props, 'props inside the navbar compnent');
     return (
-      // <Router>
-      <div>
-        <Navbar color="primary" dark expand="md">
-          <NavbarBrand href="/">BeerMe</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <Route
-                path="/profile"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/login" className="nav-link">
-                      Logout
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-              <Route
-                path="/login"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/signup" className="nav-link">
-                      Signup
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-              <Route
-                path="/cheers"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/login" className="nav-link">
-                      Login
-                    </NavLink>
-                    <NavLink href="/signup" className="nav-link">
-                      Signup
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-              <Route
-                path="/beers"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/login" className="nav-link">
-                      Login
-                    </NavLink>
-                    <NavLink href="/signup" className="nav-link">
-                      Signup
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-            </Nav>
-          </Collapse>
-        </Navbar>
+      <div class="navish">
+        <Menu inverted>
+          <Menu.Item>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+          </Menu.Item>
+          {this.props.isLoggedIn ? (
+            <Menu.Item>
+              <NavLink exact to="/" onClick={this.handleLogout}>
+                Logout
+              </NavLink>
+            </Menu.Item>
+          ) : (
+            <Menu.Item>
+              <NavLink exact to="/login">
+                Login
+              </NavLink>
+            </Menu.Item>
+          )}
+          {this.props.isLoggedIn ? null : (
+            <Menu.Item link={false}>
+              <NavLink exact to="/signup">
+                Sign Up
+              </NavLink>
+            </Menu.Item>
+          )}
+        </Menu>
       </div>
-      // </Router>
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    userLogout: bindActionCreators(userLogout, dispatch)
+  };
+}
+
+function mapStateToProps(state) {
+  const { isLoggedIn } = state.auth;
+  return { isLoggedIn };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent);

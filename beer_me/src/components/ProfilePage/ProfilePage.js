@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Cards from './Cards/Cards';
-import Slideshow from './Slideshow/Slideshow';
+import Slideshow from './Carousel/Slideshow';
 import { Container, Row, Col } from 'reactstrap';
-
-// import '../Carousel/Slideshow.css';
 
 class Main extends Component {
   render() {
@@ -14,11 +12,9 @@ class Main extends Component {
             <Slideshow />
           </Col>
         </Row>
-        {`  `}
         <Row>
           <Cards />
         </Row>
-        {`  `}
       </Container>
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import {
@@ -13,12 +13,13 @@ import {
   Button
 } from 'reactstrap';
 
+import './BeerCard.css';
 const BeerCard = props => {
   let { id, beer_name, style, abv, ibu } = props.beer;
   console.log('props.beer', props.beer);
   return (
     <Col sm="4">
-      <Card>
+      <Card className="beer-card">
         <CardImg
           top
           src="http://microbrewr.com/wp-content/uploads/2014/11/21st-amendment-logo.jpg"

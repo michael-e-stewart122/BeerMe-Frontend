@@ -1,8 +1,16 @@
 import { applyMiddleware, createStore, compose } from 'redux';
-import rootReducer from './reducers';
+import combineReducers from './reducers/index';
 import logger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-export default initialState => {
-  return createStore(rootReducer, applyMiddleware(logger, thunkMiddleware));
-};
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancers = composeEnhancers(applyMiddleware(thunkMiddleware));
+
+export default function setupStore(initialState) {
+  return createStore(
+    combineReducers,
+    initialState,
+    enhancers,
+    applyMiddleware(logger, thunkMiddleware)
+  );
+}
