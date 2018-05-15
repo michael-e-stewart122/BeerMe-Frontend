@@ -1,18 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import BeerCard from './BeerCard';
 
-import {
-  Row,
-  Col,
-  Card,
-  CardTitle,
-  CardImg,
-  CardBody,
-  CardText,
-  CardSubtitle,
-  Button
-} from 'reactstrap';
+import { Row } from 'reactstrap';
 
 const BeerCards = ({ beers }) => {
   let listOfBeers = beers.map(beer => <BeerCard key={beer.id} beer={beer} />);

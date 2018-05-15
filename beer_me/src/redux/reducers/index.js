@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
 import beers from '../reducers/beers';
-// import comments from '../reducers/comments';
-// import filter from '../reducers/filter';
-
-export default combineReducers({ beers });
+import auth from './auth.reducers';
+export default combineReducers({ beers, auth });

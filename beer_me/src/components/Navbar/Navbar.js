@@ -1,91 +1,62 @@
-import React from 'react';
-
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Link
-} from 'react-router-dom';
-
-export default class Example extends React.Component {
-  state = {
-    isOpen: false
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
+import { userLogout } from '../../redux/actions/auth_actions';
+import { connect } from 'react-redux';
+class NavbarComponent extends Component {
+  static defaultProps = {
+    userLogout: userLogout
   };
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+  handleLogout = e => {
+    e.preventDefault();
+    // console.log(this.props.history);
+    // console.log(userLogout());
+    userLogout();
+    localStorage.removeItem('token');
   };
   render() {
+    console.log(this.props, 'props inside the navbar compnent');
     return (
-      // <Router>
       <div>
-        <Navbar color="primary" dark expand="md">
-          <NavbarBrand href="/">BeerMe</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <Route
-                path="/profile"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/login" className="nav-link">
-                      Logout
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-              <Route
-                path="/login"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/signup" className="nav-link">
-                      Signup
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-              <Route
-                path="/cheers"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/login" className="nav-link">
-                      Login
-                    </NavLink>
-                    <NavLink href="/signup" className="nav-link">
-                      Signup
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-              <Route
-                path="/beers"
-                component={() => (
-                  <NavItem>
-                    <NavLink href="/login" className="nav-link">
-                      Login
-                    </NavLink>
-                    <NavLink href="/signup" className="nav-link">
-                      Signup
-                    </NavLink>
-                  </NavItem>
-                )}
-              />
-            </Nav>
-          </Collapse>
-        </Navbar>
+        <Menu inverted>
+          <Menu.Item>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+          </Menu.Item>
+          {this.props.user !== undefined ? (
+            <Menu.Item>
+              <NavLink exact to="/" onClick={this.handleLogout}>
+                Logout
+              </NavLink>
+            </Menu.Item>
+          ) : (
+            <Menu.Item>
+              <NavLink exact to="/login">
+                Login
+              </NavLink>
+            </Menu.Item>
+          )}
+          {this.props.user === {} ? null : (
+            <Menu.Item link={false}>
+              <NavLink exact to="/signup">
+                Sign Up
+              </NavLink>
+            </Menu.Item>
+          )}
+        </Menu>
       </div>
-      // </Router>
     );
   }
 }
+function mapStateToProps(state) {
+  console.log('login state2', state);
+  const { user } = state.auth;
+  return { hey: 'guy' };
+  //   {
+  // showLoginError: state.auth.showLoginError,
+  // authenticatedUser: selectAuthenticatedUser(state)
+  //  };
+}
+
+export default connect(mapStateToProps)(NavbarComponent);

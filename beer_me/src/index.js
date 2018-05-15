@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { Provider } from 'react-redux';
-import store from './redux/store';
 import 'bootswatch/dist/materia/bootstrap.min.css';
 import './index.css';
-import { fetchBeers } from './redux/actions/beers';
+import checkAuthentication from './utils/checkAuthentication';
+import env from './env';
 
-const newStore = store();
+async function render() {
+  const authentication = await checkAuthentication({
+    baseUrl: env.API_BASE_URL
+  });
+  ReactDOM.render(
+    <App authentication={authentication} />,
+    document.getElementById('root')
+  );
+}
 
-newStore.dispatch(fetchBeers());
-
-ReactDOM.render(
-  <Provider store={newStore}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+render();

@@ -10,9 +10,10 @@ import {
   Alert,
   Input
 } from 'reactstrap';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { userLogin } from '../actions/auth.actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { userLogin } from '../../redux/actions/auth_actions';
+import selectAuthenticatedUser from '../../redux/selectors/selectAuthenticatedUser';
 
 class Login extends Component {
   state = {
@@ -34,6 +35,11 @@ class Login extends Component {
     // console.log('proooops', this.props.history);
   };
 
+  handleLogout = e => {
+    e.preventDefault();
+    console.log(this.props);
+  };
+
   render() {
     return (
       <Container className="main-wrapper">
@@ -45,7 +51,7 @@ class Login extends Component {
               padding: 35,
               boxShadow: '3px 3px 47px 0px rgba(0,0,0,0.5)'
             }}>
-            <Form>
+            <Form onSubmit={this.handleLogin}>
               <FormGroup>
                 <Label for="email-field">Email</Label>
                 <Input
@@ -85,16 +91,18 @@ class Login extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     showLoginError: state.auth.showLoginError
-//   };
-// }
+function mapStateToProps(state) {
+  console.log('login state2', state);
+  return {
+    showLoginError: state.auth.showLoginError,
+    authenticatedUser: selectAuthenticatedUser(state)
+  };
+}
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     userLogin: bindActionCreators(userLogin, dispatch)
-//   };
-// }
-export default Login;
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
+function mapDispatchToProps(dispatch) {
+  return {
+    userLogin: bindActionCreators(userLogin, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

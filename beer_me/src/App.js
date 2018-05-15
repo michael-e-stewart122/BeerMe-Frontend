@@ -1,30 +1,61 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-// import Layout from './components/Layout/Layout';
+import { isEmpty } from './utils/LangUtils';
 import Navbar from './components/Navbar/Navbar';
-// import BackImage from './components/BackImage/BackImage';
-// import Searching from './components/Searching/Searching';
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
 import BeerPage from './components/BeerPage/BeerPage';
-
+import Signup from './components/Signup/Signup';
+import LoginPageContainer from './redux/containers/LoginPageContainer';
+import { Provider } from 'react-redux';
+import { fetchBeers } from './redux/actions/beers';
+import setupStore from './redux/store';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-export const App = () => {
-  return (
-    <div>
-      <Router>
-        <div>
-          <Navbar />
-          <Route exact path="/" component={() => <Redirect to="/cheers" />} />
-          <Route path="/login" component={Login} />
-          <Route path="/cheers" render={props => <Main />} />
-          <Route path="/beers" render={props => <BeerPage />} />
-        </div>
-      </Router>
-    </div>
-  );
-};
-export default App;
+const store = setupStore();
+
+store.dispatch(fetchBeers());
+
+function getInitialState(authentication) {
+  return {
+    auth: {
+      token: authentication.token,
+      authenticatedUserId: authentication.user.id,
+      usersById: {
+        [authentication.user.id]: authentication.user
+      }
+    }
+  };
+}
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Provider store={store}>
+          <Router>
+            <div>
+              <Navbar
+                authenticatedUser={
+                  this.props.authentication !== null
+                    ? this.props.authentication.user
+                    : { authentication: false }
+                }
+              />
+              <Route
+                exact
+                path="/"
+                component={() => <Redirect to="/cheers" />}
+              />
+              <Route exact path="/login" component={LoginPageContainer} />
+              <Route path="/cheers" render={props => <Main />} />
+              <Route path="/beers" render={props => <BeerPage />} />
+              <Route path="/signup" component={Signup} />
+            </div>
+          </Router>
+        </Provider>
+      </div>
+    );
+  }
+}
