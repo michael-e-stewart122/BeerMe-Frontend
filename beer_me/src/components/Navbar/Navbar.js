@@ -4,7 +4,7 @@ import { Menu } from 'semantic-ui-react';
 import { userLogout } from '../../redux/actions/auth_actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import './Navbar.css';
 class NavbarComponent extends Component {
   handleLogout = e => {
     e.preventDefault();
@@ -13,7 +13,7 @@ class NavbarComponent extends Component {
   render() {
     console.log(this.props, 'props inside the navbar compnent');
     return (
-      <div class="navish">
+      <div className="nav-bar">
         <Menu inverted>
           <Menu.Item>
             <NavLink exact to="/">
@@ -53,6 +53,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
+  console.log(state.auth);
   const { isLoggedIn } = state.auth;
   return { isLoggedIn };
 }

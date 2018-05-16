@@ -13,6 +13,10 @@ import {
   Button
 } from 'reactstrap';
 
+const handleClick = e => {
+  e.preventDefault();
+};
+
 const BreweryCard = props => {
   let {
     id,
@@ -37,7 +41,7 @@ const BreweryCard = props => {
           <CardTitle>{brewery_name}</CardTitle>
           <CardSubtitle>{city}</CardSubtitle>
           <CardText>{state}</CardText>
-          <Button href={`/breweries/${id}`}>Discover</Button>
+          <Button onClick={this.props.handleClick}>Discover</Button>
         </CardBody>
       </Card>
     </Col>

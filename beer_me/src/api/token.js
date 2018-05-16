@@ -1,10 +1,7 @@
 import env from '../env';
 
 export default async function authenticate(credentials) {
-  console.log(credentials, 'denties');
   try {
-    console.log(env.API_BASE_URL, 'heyyyyyy');
-    console.log(process.env);
     const response = await fetch(`${env.API_BASE_URL}/token`, {
       method: 'POST',
       headers: {

@@ -20,10 +20,8 @@ import { connect } from 'react-redux';
 import BreweryPage from './components/BreweryPage/BreweryPage';
 import FeatureBreweryPage from './components/FeatureBreweryPage/FeatureBreweryPage';
 
-
 import setupStore from './redux/store';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-
 
 const store = setupStore();
 
@@ -34,7 +32,6 @@ store.dispatch(featureBrewery(1));
 
 export default class App extends Component {
   render() {
-    console.log(this.state);
     return (
       <div>
         <Provider store={store}>
@@ -50,11 +47,16 @@ export default class App extends Component {
               <Route path="/cheers" render={props => <Main />} />
               <Route path="/beers" render={props => <BeerPage />} />
               <Route path="/signup" component={Signup} />
-              <Route exact path="/breweries" render={props => <BreweryPage />} />
+              <Route
+                exact
+                path="/breweries"
+                render={props => <BreweryPage />}
+              />
               <Route
                 exact
                 path="/breweries/:id"
                 render={props => <FeatureBreweryPage />}
+              />
             </div>
           </Router>
         </Provider>
@@ -65,5 +67,6 @@ export default class App extends Component {
 
 const mapDispatchToProps = () => {
   return { auth: auth_actions.getAuth() };
+};
 
 connect(mapDispatchToProps)(App);
