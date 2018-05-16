@@ -9,21 +9,19 @@ class FooterComponent extends Component {
     return (
       <Grid padded="vertically">
         <Menu fixed="bottom" footer inverted>
-          <Menu.Item>
-            <NavLink to="https://github.com/carlcorsini/BeerMe-Frontend">
-              <Icon name="github" />
-            </NavLink>
+          <Menu.Item
+            style={{ textDecoration: 'none' }}
+            href="https://github.com/carlcorsini/BeerMe-Frontend">
+            <Icon name="github" />
           </Menu.Item>
           <Menu.Menu position="right">
-            <Menu.Item>
-              <NavLink exact to="/signup">
-                About
-              </NavLink>
+            <Menu.Item style={{ textDecoration: 'none' }} href="/signup">
+              About
             </Menu.Item>
-            <Menu.Item>
-              <NavLink to="https://github.com/carlcorsini/BeerMe-Frontend">
-                <Icon name="github" />
-              </NavLink>
+            <Menu.Item
+              style={{ textDecoration: 'none' }}
+              href="https://github.com/carlcorsini/BeerMe-Frontend">
+              <Icon name="github" />
             </Menu.Item>
           </Menu.Menu>
         </Menu>

@@ -20,7 +20,7 @@ class Main extends Component {
             <Slideshow />
           </Grid.Row>
           <Grid.Row>
-            <Cards />
+            <Cards history={this.props.history} />
           </Grid.Row>
         </Grid>
       </Container>

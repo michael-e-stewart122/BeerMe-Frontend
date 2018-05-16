@@ -9,8 +9,8 @@ class HomeHeading extends Component {
     return (
       <div>
         <Header as="h2" icon textAlign="center">
-          <Icon name="users" circular />
-          <Header.Content>Friends</Header.Content>
+          <Icon name="beer" circular />
+          <Header.Content>BeerMe</Header.Content>
         </Header>
       </div>
     );
