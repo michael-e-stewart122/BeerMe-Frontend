@@ -13,7 +13,7 @@ class NavbarComponent extends Component {
   render() {
     console.log(this.props, 'props inside the navbar compnent');
     return (
-      <div class="navish">
+      <div className="navish">
         <Menu inverted>
           <Menu.Item>
             <NavLink exact to="/">
