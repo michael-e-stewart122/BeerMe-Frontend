@@ -7,6 +7,7 @@ import { Container, Grid } from 'semantic-ui-react';
 
 class Main extends Component {
   render() {
+    console.log('this.state', this.state);
     return (
       <Container className="fuck">
         <Grid padded="vertically" divided="vertically">

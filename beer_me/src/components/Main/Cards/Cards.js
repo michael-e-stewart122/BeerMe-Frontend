@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { RingLoader } from 'react-spinners';
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 import './Cards.css';
+
 
 const randomizer = (breweries, max) => {
   let random = Math.floor(Math.random() * Math.floor(max));
@@ -49,6 +51,9 @@ const Cards = ({ beers, breweries }) => {
   }
 };
 
+
+
+
 const mapStateToProps = ({ beers, breweries }) => ({
   beers: beers,
   breweries: breweries
@@ -56,4 +61,3 @@ const mapStateToProps = ({ beers, breweries }) => ({
 
 export default connect(mapStateToProps, null)(Cards);
 
-// export default Cards;
