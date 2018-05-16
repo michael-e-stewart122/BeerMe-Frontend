@@ -28,7 +28,6 @@ const BeerCard = props => {
         <CardBody>
           <CardTitle>{beer_name}</CardTitle>
           <CardSubtitle>{style}</CardSubtitle>
-          {/* <CardText>located at blah blah blah</CardText> */}
           <Button>Discover</Button>
         </CardBody>
       </Card>

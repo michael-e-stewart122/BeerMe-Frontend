@@ -136,7 +136,7 @@ export class Signup extends Component {
                   <Alert color="danger">Passwords do not match</Alert>
                 ) : null}
               </FormGroup>
-              <Button color="primary" type="submit">
+              <Button color="dark" type="submit">
                 Submit
               </Button>
             </Form>

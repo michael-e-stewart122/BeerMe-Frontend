@@ -21,7 +21,6 @@ export const GET_AUTH_FAILED = 'GET_AUTH_FAILED';
 const BASE_URL = 'http://localhost:8000';
 
 export const userLogin = (credentials, history) => {
-
   return async dispatch => {
     try {
       const { token } = await authenticate(credentials);
@@ -85,6 +84,7 @@ export const getAuth = () => {
       dispatch({
         type: 'GET_AUTH_SUCCESS',
         payload: {
+          user,
           isLoggedIn: true,
           token: token,
           authenticatedUserId: user.id,
