@@ -14,6 +14,7 @@ class NavbarComponent extends Component {
     console.log(this.props, 'props inside the navbar compnent');
     return (
       <div className="nav-bar">
+
         <Menu inverted>
           <Menu.Item>
             <NavLink exact to="/">

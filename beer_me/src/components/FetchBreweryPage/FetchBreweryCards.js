@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 // import { connect } from 'react-redux';
-// import FeatureBreweryCard from './FeatureBreweryCard';
+// import fetchBreweryCard from './fetchBreweryCard';
 //
 // import {
 //   Row,
@@ -14,16 +14,16 @@
 //   Button
 // } from 'reactstrap';
 //
-// const FeatureBreweryCards = ({ breweries }) => {
+// const fetchBreweryCards = ({ breweries }) => {
 //   let listOfBreweries = breweries.map(brewery => (
-//     <FeatureBreweryCard key={brewery.id} brewery={brewery} />
+//     <fetchBreweryCard key={brewery.id} brewery={brewery} />
 //   ));
 //   console.log('do we get here!!!');
 //   return <Row>{listOfBreweries}</Row>;
 // };
 //
 // const mapStateToProps = ({ breweries }) => ({
-//   featureBrewery: breweries
+//   fetchBrewery: breweries
 // });
 //
-// export default connect(mapStateToProps, null)(FeatureBreweryCards);
+// export default connect(mapStateToProps, null)(fetchBreweryCards);

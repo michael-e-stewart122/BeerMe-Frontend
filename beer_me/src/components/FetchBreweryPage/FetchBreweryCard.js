@@ -11,7 +11,7 @@ import {
   CardSubtitle
 } from 'reactstrap';
 
-const FeatureBreweryCard = props => {
+const FetchBreweryCard = props => {
   let {
     id,
     brewery_name,
@@ -21,8 +21,8 @@ const FeatureBreweryCard = props => {
     zip,
     phone,
     url
-  } = props.featureBrewery;
-  console.log('PROPS.FEATUREBREWERY', props);
+  } = props.fetchBrewery;
+  console.log('props.fetchBrewery', props.fetchBrewery);
   return (
     <div>
       <Card>
@@ -46,7 +46,7 @@ const FeatureBreweryCard = props => {
 };
 
 const mapStateToProps = (state, props) => ({
-  featureBrewery: state.featureBrewery
+  fetchBrewery: state.fetchBrewery
 });
 
-export default connect(mapStateToProps)(FeatureBreweryCard);
+export default connect(mapStateToProps)(FetchBreweryCard);

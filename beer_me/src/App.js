@@ -12,13 +12,15 @@ import LoginPageContainer from './redux/containers/LoginPageContainer';
 import { Provider } from 'react-redux';
 import { fetchBeers } from './redux/actions/beers';
 import { fetchBreweries } from './redux/actions/breweries';
-import { featureBrewery } from './redux/actions/featureBrewery';
+import { fetchBrewery } from './redux/actions/fetchBrewery';
 import { getAuth } from './redux/actions/auth_actions';
 import auth_actions from './redux/actions/auth_actions';
 import { connect } from 'react-redux';
 
 import BreweryPage from './components/BreweryPage/BreweryPage';
-import FeatureBreweryPage from './components/FeatureBreweryPage/FeatureBreweryPage';
+
+import FetchBreweryPage from './components/FetchBreweryPage/FetchBreweryPage';
+
 
 import setupStore from './redux/store';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
@@ -28,7 +30,7 @@ const store = setupStore();
 store.dispatch(fetchBeers());
 store.dispatch(getAuth());
 store.dispatch(fetchBreweries());
-store.dispatch(featureBrewery(1));
+// store.dispatch(fetchBrewery());
 
 export default class App extends Component {
   render() {
@@ -47,15 +49,13 @@ export default class App extends Component {
               <Route path="/cheers" render={props => <Main />} />
               <Route path="/beers" render={props => <BeerPage />} />
               <Route path="/signup" component={Signup} />
-              <Route
-                exact
-                path="/breweries"
-                render={props => <BreweryPage />}
-              />
+
+              <Route exact path="/breweries" component={BreweryPage} />
               <Route
                 exact
                 path="/breweries/:id"
-                render={props => <FeatureBreweryPage />}
+                render={props => <FetchBreweryPage />}
+
               />
             </div>
           </Router>
