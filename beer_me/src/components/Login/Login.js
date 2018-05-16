@@ -24,8 +24,6 @@ class Login extends Component {
 
   handleLogin = e => {
     e.preventDefault();
-    console.log(this.state);
-    console.log('props', this.props);
     this.props.userLogin(
       {
         email: this.state.email,

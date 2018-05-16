@@ -14,9 +14,10 @@ import {
   Button
 } from 'reactstrap';
 
-const BreweryCards = ({ breweries }) => {
+const BreweryCards = ({ breweries, history }) => {
+  console.log('state.....', history);
   let listOfBreweries = breweries.map(brewery => (
-    <BreweryCard key={brewery.id} brewery={brewery} />
+    <BreweryCard key={brewery.id} history={history} brewery={brewery} />
   ));
   return <Row>{listOfBreweries}</Row>;
 };

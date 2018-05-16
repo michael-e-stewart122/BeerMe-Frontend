@@ -20,17 +20,17 @@ export const GET_AUTH_FAILED = 'GET_AUTH_FAILED';
 const BASE_URL = 'http://localhost:8000';
 
 export const userLogin = (credentials, history) => {
-  console.log('touch me?');
-  console.log(credentials, 'auth_actions credents');
+  // console.log('touch me?');
+  // console.log(credentials, 'auth_actions credents');
   return async dispatch => {
     try {
       const { token } = await authenticate(credentials);
-      console.log('token', token);
+      // console.log('token', token);
       localStorage.setItem('token', token);
       const { sub: userId } = decode(token);
-      console.log(userId, 'userid');
+      // console.log(userId, 'userid');
       const user = await getUser(userId, { token });
-      console.log(user, 'user');
+      // console.log(user, 'user');
       dispatch({ type: USER_LOGIN_PENDING });
 
       dispatch({
@@ -40,7 +40,7 @@ export const userLogin = (credentials, history) => {
       history.push('/cheers', user);
       return { token, user };
     } catch (err) {
-      console.log('err', err);
+      // console.log('err', err);
       dispatch({
         type: USER_LOGIN_FAILED,
         payload: err

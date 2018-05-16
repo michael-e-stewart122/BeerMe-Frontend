@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './BeerCard.css';
 
 import {
   Row,
@@ -13,10 +14,9 @@ import {
   Button
 } from 'reactstrap';
 
-import './BeerCard.css';
 const BeerCard = props => {
   let { id, beer_name, style, abv, ibu } = props.beer;
-  console.log('props.beer', props.beer);
+  console.log('props', props);
   return (
     <Col sm="4">
       <Card className="beer-card">

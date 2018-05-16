@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
 
 import {
   Row,
@@ -24,7 +26,14 @@ const BreweryCard = props => {
     phone,
     url
   } = props.brewery;
-  // console.log('props.brewery!!!', props.brewery.id);
+
+  const handleClick = e => {
+    e.preventDefault();
+    console.log('props.history...', props.history);
+    props.fetchBrewery(id, props.history);
+    // console.log('browserHistory', browserHistory);
+  };
+
   return (
     <Col sm="4">
       <Card>
@@ -37,15 +46,21 @@ const BreweryCard = props => {
           <CardTitle>{brewery_name}</CardTitle>
           <CardSubtitle>{city}</CardSubtitle>
           <CardText>{state}</CardText>
-          <Button href={`/breweries/${id}`}>Discover</Button>
+          <Button onClick={handleClick}>Discover</Button>
         </CardBody>
       </Card>
     </Col>
   );
 };
 
-const mapStateToProps = (state, props) => ({
-  breweries: state.breweries
-});
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchBrewery: bindActionCreators(fetchBrewery, dispatch)
+//   };
+// }
 
-export default connect(mapStateToProps)(BreweryCard);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ fetchBrewery }, dispatch);
+
+export default connect(null, mapDispatchToProps)(BreweryCard);
+// export default connect(mapStateToProps)(BreweryCard);
