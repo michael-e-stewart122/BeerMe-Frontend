@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
-import BreweryCards from './BreweryCards/BreweryCards';
+import FetchBeerCard from './FetchBeerCard';
 
-class BreweryPage extends Component {
+class FetchBeerPage extends Component {
   render() {
-    // console.log('props!!!', this.props);
     return (
       <Container>
         <Row lg="12">
           <Col lg="12">{}</Col>
         </Row>
         <Row>
-          <BreweryCards history={this.props.history} />
+          <FetchBeerCard />
         </Row>
       </Container>
     );
   }
 }
 
-export default BreweryPage;
+export default FetchBeerPage;

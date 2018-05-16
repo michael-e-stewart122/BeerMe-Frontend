@@ -13,7 +13,7 @@ class BeerPage extends Component {
           </Col>
         </Row>
         <Row>
-          <BeerCards />
+          <BeerCards history={this.props.history} />
         </Row>
       </Container>
     );

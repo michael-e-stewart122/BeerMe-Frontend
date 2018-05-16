@@ -4,8 +4,11 @@ import BeerCard from './BeerCard';
 
 import { Row } from 'reactstrap';
 
-const BeerCards = ({ beers }) => {
-  let listOfBeers = beers.map(beer => <BeerCard key={beer.id} beer={beer} />);
+const BeerCards = ({ beers, history }) => {
+  console.log('history...', history);
+  let listOfBeers = beers.map(beer => (
+    <BeerCard key={beer.id} history={history} beer={beer} />
+  ));
   return <Row>{listOfBeers}</Row>;
 };
 

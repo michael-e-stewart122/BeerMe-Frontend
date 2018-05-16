@@ -7,6 +7,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 class Main extends Component {
   render() {
+    console.log('this.state', this.state);
     return (
       <Container>
         <Row lg="12">

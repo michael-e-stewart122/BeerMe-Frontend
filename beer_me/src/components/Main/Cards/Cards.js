@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import {
   Row,
@@ -12,7 +13,7 @@ import {
   Button
 } from 'reactstrap';
 
-const Cards = () => (
+const Cards = ({ beers, breweries }) => (
   <Row>
     <Col sm="4">
       <Card>
@@ -52,14 +53,20 @@ const Cards = () => (
           alt="Card image cap"
         />
         <CardBody>
-          <CardTitle>Brewery Of the Week</CardTitle>
+          <CardTitle>{console.log(beers[0])}</CardTitle>
+
           {/* <CardSubtitle>21st Amendment</CardSubtitle> */}
           {/* <CardText>located at address</CardText> */}
-          <Button>Check It Out!</Button>
+          <Button href="/breweries">Check It Out!</Button>
         </CardBody>
       </Card>
     </Col>
   </Row>
 );
 
-export default Cards;
+const mapStateToProps = ({ beers, breweries }) => ({
+  beers: beers,
+  breweries: breweries
+});
+
+export default connect(mapStateToProps, null)(Cards);

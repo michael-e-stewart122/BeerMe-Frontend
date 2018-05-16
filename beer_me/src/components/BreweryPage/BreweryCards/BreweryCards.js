@@ -15,7 +15,6 @@ import {
 } from 'reactstrap';
 
 const BreweryCards = ({ breweries, history }) => {
-  console.log('state.....', history);
   let listOfBreweries = breweries.map(brewery => (
     <BreweryCard key={brewery.id} history={history} brewery={brewery} />
   ));

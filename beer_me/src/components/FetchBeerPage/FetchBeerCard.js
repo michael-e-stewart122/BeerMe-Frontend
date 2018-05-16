@@ -11,18 +11,9 @@ import {
   CardSubtitle
 } from 'reactstrap';
 
-const FetchBreweryCard = props => {
-  let {
-    id,
-    brewery_name,
-    address,
-    city,
-    state,
-    zip,
-    phone,
-    url
-  } = props.fetchBrewery;
-  // console.log('props.fetchBrewery', props.fetchBrewery);
+const FetchBeerCard = props => {
+  let { id, beer_name, style, abv, ibu } = props.fetchBeer;
+
   return (
     <div>
       <Card>
@@ -36,9 +27,9 @@ const FetchBreweryCard = props => {
           alt="Card image cap"
         />
         <CardBody>
-          <CardText>{brewery_name}</CardText>
-          <CardLink />
-          <CardLink href="#">Another Link</CardLink>
+          <CardText>{beer_name}</CardText>
+          <CardText>{style}</CardText>
+          <CardText />
         </CardBody>
       </Card>
     </div>
@@ -46,7 +37,7 @@ const FetchBreweryCard = props => {
 };
 
 const mapStateToProps = (state, props) => ({
-  fetchBrewery: state.fetchBrewery
+  fetchBeer: state.fetchBeer
 });
 
-export default connect(mapStateToProps)(FetchBreweryCard);
+export default connect(mapStateToProps)(FetchBeerCard);
