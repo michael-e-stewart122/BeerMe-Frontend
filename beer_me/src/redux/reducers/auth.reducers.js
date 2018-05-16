@@ -50,8 +50,8 @@ export default (state = initialState, action) => {
         showSignupError: false
       };
     case GET_AUTH_SUCCESS:
-      // console.log(action.payload, 'reducer payload');
-      return { ...state, user: action.payload };
+      console.log(action.payload, 'reducer payload');
+      return { ...state, user: action.payload.user, ...action.payload };
     case GET_AUTH_FAILED:
       return { ...state };
     default:

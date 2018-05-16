@@ -6,6 +6,7 @@ import auth_actions from '../actions/auth_actions';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state) {
+  console.log("i'm in login container!!!!!!!!!!!!!!!!!!!!!");
   return {
     authenticatedUser: selectAuthenticatedUser(state)
   };

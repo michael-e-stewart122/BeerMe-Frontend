@@ -15,6 +15,10 @@ import {
   Button
 } from 'reactstrap';
 
+const handleClick = e => {
+  e.preventDefault();
+};
+
 const BreweryCard = props => {
   let {
     id,
@@ -46,6 +50,7 @@ const BreweryCard = props => {
           <CardTitle>{brewery_name}</CardTitle>
           <CardSubtitle>{city}</CardSubtitle>
           <CardText>{state}</CardText>
+
           <Button onClick={handleClick}>Discover</Button>
         </CardBody>
       </Card>
@@ -53,14 +58,10 @@ const BreweryCard = props => {
   );
 };
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     fetchBrewery: bindActionCreators(fetchBrewery, dispatch)
-//   };
-// }
+
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ fetchBrewery }, dispatch);
 
 export default connect(null, mapDispatchToProps)(BreweryCard);
-// export default connect(mapStateToProps)(BreweryCard);
+

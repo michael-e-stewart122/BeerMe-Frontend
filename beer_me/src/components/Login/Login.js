@@ -24,6 +24,7 @@ class Login extends Component {
 
   handleLogin = e => {
     e.preventDefault();
+
     this.props.userLogin(
       {
         email: this.state.email,
@@ -31,10 +32,11 @@ class Login extends Component {
       },
       this.props.history
     );
-    // console.log('proooops', this.props.history);
   };
 
   render() {
+    console.log("i'm in login component!!!!!!!!");
+
     return (
       <Container className="main-wrapper">
         <Row style={{ marginTop: '15vh' }}>
