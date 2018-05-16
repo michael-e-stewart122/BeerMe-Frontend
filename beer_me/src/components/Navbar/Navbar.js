@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { userLogout } from '../../redux/actions/auth_actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -13,36 +13,42 @@ class NavbarComponent extends Component {
   render() {
     console.log(this.props, 'props inside the navbar compnent');
     return (
-      <div className="nav-bar">
-
-        <Menu inverted>
-          <Menu.Item>
-            <NavLink exact to="/">
-              Home
-            </NavLink>
-          </Menu.Item>
-          {this.props.isLoggedIn ? (
+      <Menu className="nav-bar" stackable inverted>
+        <Menu.Item>
+          <NavLink exact to="/">
+            <Icon name="home" />
+            Home
+          </NavLink>
+        </Menu.Item>
+        {this.props.auth.isLoggedIn ? (
+          <Menu.Menu position="right">
+            <Menu.Item>
+              <NavLink exact to="/profile">
+                <Icon name="user" />
+                {this.props.auth.user.username}
+              </NavLink>
+            </Menu.Item>
             <Menu.Item>
               <NavLink exact to="/" onClick={this.handleLogout}>
                 Logout
               </NavLink>
             </Menu.Item>
-          ) : (
+          </Menu.Menu>
+        ) : (
+          <Menu.Menu position="right">
+            <Menu.Item>
+              <NavLink exact to="/signup">
+                Sign Up
+              </NavLink>
+            </Menu.Item>
             <Menu.Item>
               <NavLink exact to="/login">
                 Login
               </NavLink>
             </Menu.Item>
-          )}
-          {this.props.isLoggedIn ? null : (
-            <Menu.Item link={false}>
-              <NavLink exact to="/signup">
-                Sign Up
-              </NavLink>
-            </Menu.Item>
-          )}
-        </Menu>
-      </div>
+          </Menu.Menu>
+        )}
+      </Menu>
     );
   }
 }
@@ -55,8 +61,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   console.log(state.auth);
-  const { isLoggedIn } = state.auth;
-  return { isLoggedIn };
+  const { auth } = state;
+  return { auth };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent);

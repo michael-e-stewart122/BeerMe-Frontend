@@ -75,10 +75,12 @@ class Login extends Component {
                   Either your email or password is incorrect. Please try again.
                 </Alert>
               ) : null}
-              <Button className="mr-3" type="submit" color="primary">
+              <Button className="mr-3" type="submit" color="dark">
                 Submit
               </Button>
-              <a href="/signup">Not a member?</a>
+              <a color="black" href="/signup">
+                Not a member?
+              </a>
             </Form>
           </Col>
         </Row>

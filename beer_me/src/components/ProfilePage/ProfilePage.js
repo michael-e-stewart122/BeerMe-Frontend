@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import Cards from './Cards/Cards';
-import Slideshow from './Carousel/Slideshow';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Divider } from 'semantic-ui-react';
 
-class Main extends Component {
+import TopSection from './TopSection/TopSection';
+class ProfilePage extends Component {
   render() {
     return (
-      <Container>
-        <Row lg="12">
-          <Col lg="12">
-            <Slideshow />
-          </Col>
-        </Row>
-        <Row>
-          <Cards />
-        </Row>
+      <Container textAlign="left">
+        <TopSection />
+        <Divider />
       </Container>
     );
   }
 }
 
-export default Main;
+export default ProfilePage;

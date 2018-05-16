@@ -38,8 +38,10 @@ const BeerCard = props => {
         <CardBody>
           <CardTitle>{beer_name}</CardTitle>
           <CardSubtitle>{style}</CardSubtitle>
+
           {/* <CardText>located at blah blah blah</CardText> */}
           <Button onClick={handleClick}>Discover</Button>
+
         </CardBody>
       </Card>
     </Col>
