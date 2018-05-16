@@ -10,20 +10,20 @@ import {
 const items = [
   {
     src: 'https://s.hdnux.com/photos/66/64/75/14372727/3/920x920.jpg',
-    altText: 'Slide 1',
-    caption: 'HELOOOO'
+    altText: 'Beers',
+    caption: 'Beers'
   },
   {
     src:
       'https://cdn.vox-cdn.com/thumbor/68Fxd5dPE3Uxa4mVbpR139OBSM4=/0x0:2000x1333/1200x0/filters:focal(0x0:2000x1333)/cdn.vox-cdn.com/uploads/chorus_asset/file/10810239/SFBrewingCo_PChang_5929.jpg',
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    altText: 'Breweries',
+    caption: 'Breweries'
   },
   {
     src:
       'https://cdn.vox-cdn.com/thumbor/8TjOlmuJ-JDqU-Y4D1TGFpFe5Pw=/42x0:711x502/1200x900/filters:focal(42x0:711x502)/cdn.vox-cdn.com/uploads/chorus_image/image/51980545/Lagunitas-Brewing-Co.-753-Wide-Tour-2016-m.woolsey1.0.0.jpeg',
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    altText: 'Friends',
+    caption: 'Friends'
   }
 ];
 

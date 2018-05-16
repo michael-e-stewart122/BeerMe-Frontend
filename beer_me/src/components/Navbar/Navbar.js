@@ -14,37 +14,31 @@ class NavbarComponent extends Component {
     console.log(this.props, 'props inside the navbar compnent');
     return (
       <Menu className="nav-bar" stackable inverted>
-        <Menu.Item>
-          <NavLink exact to="/">
-            <Icon name="home" />
-            Home
-          </NavLink>
+        <Menu.Item style={{ textDecoration: 'none' }} href="/">
+          <Icon name="home" />
+          Home
         </Menu.Item>
         {this.props.auth.isLoggedIn ? (
           <Menu.Menu position="right">
-            <Menu.Item>
-              <NavLink exact to="/profile">
-                <Icon name="user" />
-                {this.props.auth.user.username}
-              </NavLink>
+            <Menu.Item style={{ textDecoration: 'none' }} href="/profile">
+              <Icon name="user" />
+              {this.props.auth.user.username}
             </Menu.Item>
-            <Menu.Item>
-              <NavLink exact to="/" onClick={this.handleLogout}>
-                Logout
-              </NavLink>
+            <Menu.Item
+              style={{ textDecoration: 'none' }}
+              exact
+              to="/"
+              onClick={this.handleLogout}>
+              Logout
             </Menu.Item>
           </Menu.Menu>
         ) : (
           <Menu.Menu position="right">
-            <Menu.Item>
-              <NavLink exact to="/signup">
-                Sign Up
-              </NavLink>
+            <Menu.Item style={{ textDecoration: 'none' }} href="/signup">
+              Sign Up
             </Menu.Item>
-            <Menu.Item>
-              <NavLink exact to="/login">
-                Login
-              </NavLink>
+            <Menu.Item style={{ textDecoration: 'none' }} href="/login">
+              Login
             </Menu.Item>
           </Menu.Menu>
         )}
