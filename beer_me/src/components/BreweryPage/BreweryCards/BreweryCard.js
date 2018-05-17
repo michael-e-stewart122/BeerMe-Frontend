@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
+import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+
 import { fetchBreweryBeer } from '../../../redux/actions/beersByBrewery';
 
-import {
-  Row,
-  Col,
-  Card,
-  CardTitle,
-  CardImg,
-  CardBody,
-  CardText,
-  CardSubtitle,
-  Button
-} from 'reactstrap';
+
 
 const BreweryCard = props => {
   let {
@@ -36,18 +28,20 @@ const BreweryCard = props => {
   };
 
   return (
-    <Col sm="4">
-      <Card>
-        <CardImg top src={brewery_logo} alt="Card image cap" />
-        <CardBody>
-          <CardTitle>{brewery_name}</CardTitle>
-          <CardSubtitle>{city}</CardSubtitle>
-          <CardText>{state}</CardText>
 
-          <Button onClick={handleClick}>Discover</Button>
-        </CardBody>
-      </Card>
-    </Col>
+    <Card onClick={handleClick}>
+      <Image
+        top
+        src={brewery_logo}
+        alt="Card image cap"
+      />
+      <Card.Content>
+        <Card.Header>{brewery_name}</Card.Header>
+        <Card.Meta>{city}</Card.Meta>
+        <Card.Meta>{state}</Card.Meta>
+      </Card.Content>
+    </Card>
+
   );
 };
 

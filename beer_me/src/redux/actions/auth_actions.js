@@ -4,6 +4,7 @@ import getUser from '../../api/getUser';
 import createUser from '../../api/createUser';
 import checkAuthentication from '../../utils/checkAuthentication';
 import env from '../../env';
+import getUsersFavoriteBeers from '../../api/getUsersFavoriteBeers';
 
 export const USER_LOGIN_PENDING = 'USER_LOGIN_PENDING';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
@@ -27,7 +28,6 @@ export const userLogin = (credentials, history) => {
 
       localStorage.setItem('token', token);
       const { sub: userId } = decode(token);
-
       const user = await getUser(userId, { token });
 
       // dispatch({ type: USER_LOGIN_PENDING });
@@ -35,7 +35,7 @@ export const userLogin = (credentials, history) => {
         type: USER_LOGIN_SUCCESS,
         payload: { user, token }
       });
-      history.push('/cheers', user);
+      history.push('/profile', user);
       return { token, user };
     } catch (err) {
       dispatch({
@@ -80,17 +80,21 @@ export const getAuth = () => {
       };
       const auth = Promise.resolve(authentication());
       let { token, user } = await auth;
+      const userBeerResponse = await getUsersFavoriteBeers(user.id);
+      console.log(userBeerResponse, 'user beer response in actions');
+      const userBeers = await userBeerResponse.json();
       console.log('hey am i getting called');
       dispatch({
         type: 'GET_AUTH_SUCCESS',
         payload: {
           user,
+          userBeers,
           isLoggedIn: true,
           token: token,
-          authenticatedUserId: user.id,
-          usersById: {
-            [user.id]: user
-          }
+          authenticatedUserId: user.id
+          // usersById: {
+          //   [user.id]: user
+          // }
         }
       });
     } catch (error) {

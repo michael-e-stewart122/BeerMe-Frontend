@@ -23,8 +23,7 @@ const Cards = ({ beers }) => (
         />
         <CardBody>
           <CardTitle>Find a Beer!</CardTitle>
-          {/* <CardSubtitle>21st Amendment</CardSubtitle> */}
-          {/* <CardText>located at blah blah blah</CardText> */}
+
           <Button href="/beers">Discover</Button>
         </CardBody>
       </Card>
