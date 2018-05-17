@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
-
-import {
-  Row,
-  Col,
-  Card,
-  CardTitle,
-  CardImg,
-  CardBody,
-  CardText,
-  CardSubtitle,
-  Button
-} from 'reactstrap';
+import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+// import {
+//   Row,
+//   Col,
+//   Card,
+//   CardTitle,
+//   CardImg,
+//   CardBody,
+//   CardText,
+//   CardSubtitle,
+//   Button
+// } from 'reactstrap';
 
 const BreweryCard = props => {
   let {
@@ -33,22 +33,18 @@ const BreweryCard = props => {
   };
 
   return (
-    <Col sm="4">
-      <Card>
-        <CardImg
-          top
-          src="http://beerpulse.com/wp-content/uploads/2017/05/lagunitas-logo-2017.jpg"
-          alt="Card image cap"
-        />
-        <CardBody>
-          <CardTitle>{brewery_name}</CardTitle>
-          <CardSubtitle>{city}</CardSubtitle>
-          <CardText>{state}</CardText>
-
-          <Button onClick={handleClick}>Discover</Button>
-        </CardBody>
-      </Card>
-    </Col>
+    <Card onClick={handleClick}>
+      <Image
+        top
+        src="http://beerpulse.com/wp-content/uploads/2017/05/lagunitas-logo-2017.jpg"
+        alt="Card image cap"
+      />
+      <Card.Content>
+        <Card.Header>{brewery_name}</Card.Header>
+        <Card.Meta>{city}</Card.Meta>
+        <Card.Meta>{state}</Card.Meta>
+      </Card.Content>
+    </Card>
   );
 };
 

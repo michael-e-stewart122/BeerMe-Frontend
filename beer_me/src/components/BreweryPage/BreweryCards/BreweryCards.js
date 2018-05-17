@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BreweryCard from './BreweryCard';
-
-import {
-  Row,
-  Col,
-  Card,
-  CardTitle,
-  CardImg,
-  CardBody,
-  CardText,
-  CardSubtitle,
-  Button
-} from 'reactstrap';
+import { Card } from 'semantic-ui-react';
 
 const BreweryCards = ({ breweries, history }) => {
   let listOfBreweries = breweries.map(brewery => (
     <BreweryCard key={brewery.id} history={history} brewery={brewery} />
   ));
-  return <Row>{listOfBreweries}</Row>;
+  return <Card.Group centered>{listOfBreweries}</Card.Group>;
 };
 
 const mapStateToProps = ({ breweries }) => ({
