@@ -3,22 +3,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
-// import {
-//   Row,
-//   Col,
-//   Card,
-//   CardTitle,
-//   CardImg,
-//   CardBody,
-//   CardText,
-//   CardSubtitle,
-//   Button
-// } from 'reactstrap';
+
+import { fetchBreweryBeer } from '../../../redux/actions/beersByBrewery';
+
+
 
 const BreweryCard = props => {
   let {
     id,
     brewery_name,
+    brewery_logo,
     address,
     city,
     state,
@@ -30,13 +24,15 @@ const BreweryCard = props => {
   const handleClick = e => {
     e.preventDefault();
     props.fetchBrewery(id, props.history);
+    props.fetchBreweryBeer(id, props.history);
   };
 
   return (
+
     <Card onClick={handleClick}>
       <Image
         top
-        src="http://beerpulse.com/wp-content/uploads/2017/05/lagunitas-logo-2017.jpg"
+        src={brewery_logo}
         alt="Card image cap"
       />
       <Card.Content>
@@ -45,10 +41,11 @@ const BreweryCard = props => {
         <Card.Meta>{state}</Card.Meta>
       </Card.Content>
     </Card>
+
   );
 };
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchBrewery }, dispatch);
+  bindActionCreators({ fetchBrewery, fetchBreweryBeer }, dispatch);
 
 export default connect(null, mapDispatchToProps)(BreweryCard);

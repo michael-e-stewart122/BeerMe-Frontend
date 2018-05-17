@@ -6,6 +6,7 @@ import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 import './Cards.css';
 
 import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
+import { fetchBreweryBeer } from '../../../redux/actions/beersByBrewery';
 
 const randomizer = (breweries, max) => {
   let random = Math.floor(Math.random() * Math.floor(max));
@@ -16,11 +17,12 @@ const Cards = props => {
     return <div />;
   } else {
     let randomBrewery = randomizer(props.breweries, 5);
-    console.log(randomBrewery.id);
-    console.log(props.history);
+    // console.log(randomBrewery.id);
+    // console.log(props.history);
     const handleClick = e => {
       e.preventDefault();
       props.fetchBrewery(randomBrewery.id, props.history);
+      props.fetchBreweryBeer(randomBrewery.id, props.history);
     };
 
     return (
@@ -67,7 +69,7 @@ const Cards = props => {
 };
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchBrewery }, dispatch);
+  bindActionCreators({ fetchBrewery, fetchBreweryBeer }, dispatch);
 
 const mapStateToProps = ({ beers, breweries }) => ({
   beers: beers,
