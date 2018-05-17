@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
 import FetchBreweryCard from './FetchBreweryCard';
+import BreweryBeerCard from './BreweryBeerCard';
 
 class FetchBreweryPage extends Component {
   render() {
@@ -11,6 +12,7 @@ class FetchBreweryPage extends Component {
         </Row>
         <Row>
           <FetchBreweryCard />
+          <BreweryBeerCard />
         </Row>
       </Container>
     );

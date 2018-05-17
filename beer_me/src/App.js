@@ -21,7 +21,7 @@ import { fetchBeers } from './redux/actions/beers';
 import { fetchBeer } from './redux/actions/fetchBeer';
 import { fetchBreweries } from './redux/actions/breweries';
 import { fetchBrewery } from './redux/actions/fetchBrewery';
-
+import { beersByBrewery } from './redux/actions/beersByBrewery';
 // beer and brewery components
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import Signup from './components/Signup/Signup';

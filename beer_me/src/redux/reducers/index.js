@@ -4,11 +4,13 @@ import beers from '../reducers/beers';
 import fetchBeer from '../reducers/fetchBeer';
 import breweries from '../reducers/breweries';
 import fetchBrewery from '../reducers/fetchBrewery';
+import beersByBrewery from '../reducers/beersByBrewery';
 
 export default combineReducers({
   auth,
   beers,
   breweries,
   fetchBrewery,
-  fetchBeer
+  fetchBeer,
+  beersByBrewery
 });
