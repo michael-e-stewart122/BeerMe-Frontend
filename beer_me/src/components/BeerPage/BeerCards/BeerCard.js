@@ -9,12 +9,14 @@ import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 import './BeerCard.css';
 
 const BeerCard = props => {
-
   let { id, beer_name, beer_label, brewery_name, style, abv, ibu } = props.beer;
-  console.log('props.....', props);
-  // console.log('state......', state);
+  let { userBeers } = props;
+  console.log(userBeers);
+  let thing = userBeers.find(a => {
+    return a.id === id;
+  });
 
-
+  console.log(thing);
   const handleClick = e => {
     e.preventDefault();
     props.fetchBeer(id, props.history);
@@ -22,29 +24,30 @@ const BeerCard = props => {
   ////////////////////////////////////////////////////////
   const favoriteBeer = e => {
     e.preventDefault();
-    // console.log('button working');
-    // console.log('id on click', id);
-    props.addFavorite(props.user_id, id);
+    e.stopPropagation();
+    props.addFavorite(props.user_id, id, props.history);
   };
+  let boo = thing !== undefined ? true : false;
+  console.log(boo);
+  //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
   return (
-
-    <div>
-      <Card onClick={handleClick} className="beer-card">
-        <Image src={beer_label} />
-        <Card.Content>
-          <Card.Header>{beer_name}</Card.Header>
-          <Card.Description>{style}</Card.Description>
-
-          <Card.Meta />
-        </Card.Content>
-      </Card>
-      <Button onClick={favoriteBeer} class="ui basic button">
-        <i class="thumbs up icon" />
+    <Card onClick={handleClick} className="beer-card">
+      <Image src={beer_label} />
+      <Card.Content>
+        <Card.Header>{beer_name}</Card.Header>
+        <Card.Description>{style}</Card.Description>
+      </Card.Content>
+      <Button
+        disabled={boo}
+        className="favorite"
+        secondary
+        onClick={favoriteBeer}
+        class="ui basic button">
+        <i className="thumbs up icon" />
         Favorite
       </Button>
-    </div>
-
+    </Card>
   );
 };
 
