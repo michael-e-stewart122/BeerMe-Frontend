@@ -15,8 +15,10 @@ class Main extends Component {
               <HomeHeading />
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
-            <Slideshow />
+          <Grid.Row coulumns={1}>
+            <Grid.Column>
+              <Slideshow />
+            </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Cards history={this.props.history} />

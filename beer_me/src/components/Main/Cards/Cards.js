@@ -21,7 +21,6 @@ const Cards = props => {
     const handleClick = e => {
       e.preventDefault();
       props.fetchBrewery(randomBrewery.id, props.history);
-      props.fetchBreweryBeer(randomBrewery.id, props.history);
     };
 
     return (
