@@ -9,19 +9,16 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
-
 // signup/login
-
 import auth_actions from './redux/actions/auth_actions';
-
 // api calls to beers and breweries
-
 import { getAuth } from './redux/actions/auth_actions';
 import { fetchBeers } from './redux/actions/beers';
 import { fetchBeer } from './redux/actions/fetchBeer';
 import { fetchBreweries } from './redux/actions/breweries';
 import { fetchBrewery } from './redux/actions/fetchBrewery';
 import { beersByBrewery } from './redux/actions/beersByBrewery';
+import { addFavoriteBeer } from './redux/actions/addFavoriteBeer';
 // beer and brewery components
 import LoginPageContainer from './redux/containers/LoginPageContainer';
 import Signup from './components/Signup/Signup';
