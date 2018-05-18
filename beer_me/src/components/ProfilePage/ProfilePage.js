@@ -4,9 +4,10 @@ import { Container, Divider } from 'semantic-ui-react';
 
 import TopSection from './TopSection/TopSection';
 import UserBeerCards from './UserBeerCards/UserBeerCards';
+
 class ProfilePage extends Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return this.props.userBeers == undefined ? (
       <div />
     ) : (

@@ -5,6 +5,7 @@ import { Container, Card } from 'semantic-ui-react';
 import './BeerCard.css';
 
 const BeerCards = ({ beers, history }) => {
+
   let listOfBeers = beers.map(beer => (
     <BeerCard key={beer.id} history={history} beer={beer} />
   ));

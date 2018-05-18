@@ -7,6 +7,7 @@ import fetchBeer from '../reducers/fetchBeer';
 import breweries from '../reducers/breweries';
 import fetchBrewery from '../reducers/fetchBrewery';
 import beersByBrewery from '../reducers/beersByBrewery';
+import addFavoriteBeer from '../reducers/addFavoriteBeer';
 
 export default combineReducers({
   auth,
@@ -14,7 +15,9 @@ export default combineReducers({
   breweries,
   fetchBrewery,
   fetchBeer,
+
   filterBeers,
   filterBreweries,
-  beersByBrewery
+  beersByBrewery,
+  addFavoriteBeer
 });
