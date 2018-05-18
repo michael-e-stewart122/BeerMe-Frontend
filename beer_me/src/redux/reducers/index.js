@@ -8,9 +8,11 @@ import breweries from '../reducers/breweries';
 import fetchBrewery from '../reducers/fetchBrewery';
 import beersByBrewery from '../reducers/beersByBrewery';
 import addFavoriteBeer from '../reducers/addFavoriteBeer';
+import updateUser from '../reducers/updateUser';
 
 export default combineReducers({
   auth,
+  updateUser,
   beers,
   breweries,
   fetchBrewery,

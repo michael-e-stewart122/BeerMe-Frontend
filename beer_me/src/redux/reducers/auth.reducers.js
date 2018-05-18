@@ -14,6 +14,7 @@ let initialState = {
   isLoggedIn: false,
   isLoading: false,
   user: {},
+  userBeers: [],
   showLoginError: false,
   showSignupError: false
 };
