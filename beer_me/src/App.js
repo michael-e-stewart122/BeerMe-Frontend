@@ -62,11 +62,7 @@ export default class App extends Component {
                 path="/beers/:id"
                 render={props => <FetchBeerPage />}
               />
-              <Route
-                exact
-                path="/breweries/:id"
-                render={props => <FetchBreweryPage />}
-              />
+              <Route exact path="/breweries/:id" component={FetchBreweryPage} />
               <Footer />
             </div>
           </Router>
