@@ -1,5 +1,5 @@
 import getBrewery from '../../api/getBrewery';
-// import getBeersFromBrewery from '../../api/getBeersFromBrewery';
+import getBeersFromBrewery from '../../api/getBeersFromBrewery';
 
 export const FETCH_BREWERY_SUCCESS = 'FETCH_BREWERY_SUCCESS';
 export const FETCH_BREWERY_FAILED = 'FETCH_BREWERY_FAILED';
@@ -9,15 +9,19 @@ export const fetchBrewery = (id, history) => {
   return async dispatch => {
     try {
       let response = await getBrewery(id);
-      // let response2 = await getBeersFromBrewery(id);
+      let response2 = await getBeersFromBrewery(id);
       let brewery = await response.json();
-      // let breweryBeer = await response2.json();
+      let breweryBeers = await response2.json();
+      console.log('breweryBeers', breweryBeers);
+      console.log('brewery', brewery);
       dispatch({
         type: FETCH_BREWERY_SUCCESS,
-        payload: brewery
-        // breweryBeer
+        payload: {
+          brewery,
+          breweryBeers
+        }
       });
-      history.push(`/breweries/${id}`, brewery);
+      history.push(`/breweries/${id}`, { brewery, breweryBeers });
     } catch (err) {
       dispatch({
         type: FETCH_BREWERY_FAILED,
