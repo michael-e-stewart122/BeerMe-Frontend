@@ -35,7 +35,7 @@ export const userLogin = (credentials, history) => {
         type: USER_LOGIN_SUCCESS,
         payload: { user, token }
       });
-      history.push('/profile', user);
+      history.push('/', user);
       return { token, user };
     } catch (err) {
       dispatch({

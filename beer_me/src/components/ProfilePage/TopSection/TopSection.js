@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Container, Image, Card, Icon, Item, Header } from 'semantic-ui-react';
 import './TopSection.css';
 class TopSection extends Component {
