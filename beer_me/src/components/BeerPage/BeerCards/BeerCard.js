@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBeer } from '../../../redux/actions/fetchBeer';
+
 import { addFavorite } from '../../../redux/actions/addFavoriteBeer';
-// import './BeerCard.css';
+
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+import './BeerCard.css';
 
 const BeerCard = props => {
+
   let { id, beer_name, beer_label, brewery_name, style, abv, ibu } = props.beer;
   console.log('props.....', props);
   // console.log('state......', state);
+
 
   const handleClick = e => {
     e.preventDefault();
@@ -24,6 +28,7 @@ const BeerCard = props => {
   };
   //////////////////////////////////////////////////////////
   return (
+
     <div>
       <Card onClick={handleClick} className="beer-card">
         <Image src={beer_label} />
@@ -39,6 +44,7 @@ const BeerCard = props => {
         Favorite
       </Button>
     </div>
+
   );
 };
 

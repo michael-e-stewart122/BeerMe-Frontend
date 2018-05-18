@@ -10,7 +10,7 @@ export const FETCH_BEERS_FAILED = 'FETCH_BEERS_FAILED';
 // export const DECREASE_VOTES_SUCCESS = 'DECREASE_VOTES_SUCCESS';
 // export const DECREASE_VOTES_FAILED = 'DECREASE_VOTES_FAILED';
 //
-// export const FILTER_BEER_TITLE = 'FILTER_BEER_TITLE';
+export const FILTER_BEER = 'FILTER_BEER';
 
 const BASE_URL = 'http://localhost:8000';
 export const fetchBeers = () => {
@@ -96,11 +96,11 @@ export const fetchBeers = () => {
 //   }
 // }
 //
-// export const filterPosts = str => {
-//   return dispatch => {
-//     dispatch({
-//       type: FILTER_BEER_TITLE,
-//       payload: str
-//     });
-//   };
-// };
+export const filterBeers = (str, type) => {
+  return dispatch => {
+    dispatch({
+      type: FILTER_BEER,
+      payload: { filterBeers: str, type }
+    });
+  };
+};

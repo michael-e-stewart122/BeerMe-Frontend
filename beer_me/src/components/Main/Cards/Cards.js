@@ -13,12 +13,11 @@ const randomizer = (breweries, max) => {
   return breweries[random];
 };
 const Cards = props => {
+  console.log(props);
   if (props.breweries.length < 1) {
     return <div />;
   } else {
     let randomBrewery = randomizer(props.breweries, 5);
-    // console.log(randomBrewery.id);
-    // console.log(props.history);
     const handleClick = e => {
       e.preventDefault();
       props.fetchBrewery(randomBrewery.id, props.history);

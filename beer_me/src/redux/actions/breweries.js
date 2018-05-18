@@ -1,6 +1,8 @@
 export const FETCH_BREWERIES_SUCCESS = 'FETCH_BREWERIES_SUCCESS';
 export const FETCH_BREWERIES_FAILED = 'FETCH_BREWERIES_FAILED';
 
+export const FILTER_BREWERY = 'FILTER_BREWERY';
+
 const BASE_URL = 'http://localhost:8000';
 export const fetchBreweries = () => {
   return async dispatch => {
@@ -17,5 +19,14 @@ export const fetchBreweries = () => {
         payload: err
       });
     }
+  };
+};
+
+export const filterBreweries = (str, type) => {
+  return dispatch => {
+    dispatch({
+      type: FILTER_BREWERY,
+      payload: { filterBreweries: str, type }
+    });
   };
 };
