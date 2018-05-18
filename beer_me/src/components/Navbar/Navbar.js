@@ -18,6 +18,14 @@ class NavbarComponent extends Component {
           <Icon name="home" />
           Home
         </Menu.Item>
+        <Menu.Item style={{ textDecoration: 'none' }} href="/beers">
+          <Icon name="beer" />
+          Beers
+        </Menu.Item>
+        <Menu.Item style={{ textDecoration: 'none' }} href="/breweries">
+          <Icon name="building outline" />
+          Breweries
+        </Menu.Item>
         {this.props.auth.isLoggedIn ? (
           <Menu.Menu position="right">
             <Menu.Item style={{ textDecoration: 'none' }} href="/profile">
@@ -54,7 +62,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log(state.auth);
+  console.log(state);
   const { auth } = state;
   return { auth };
 }

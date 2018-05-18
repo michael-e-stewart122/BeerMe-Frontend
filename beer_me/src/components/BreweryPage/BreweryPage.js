@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
 import BreweryCards from './BreweryCards/BreweryCards';
+import FilterBreweries from './FilterBreweries';
 
 class BreweryPage extends Component {
   render() {
@@ -8,7 +9,9 @@ class BreweryPage extends Component {
     return (
       <Container>
         <Row lg="12">
-          <Col lg="12">{}</Col>
+          <Col lg="12">
+            <FilterBreweries />
+          </Col>
         </Row>
         <Row>
           <BreweryCards history={this.props.history} />

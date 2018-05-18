@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBeer } from '../../../redux/actions/fetchBeer';
-// import './BeerCard.css';
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+import './BeerCard.css';
 
 const BeerCard = props => {
   let { id, beer_name, beer_label, style, abv, ibu } = props.beer;
-  // console.log('props', props);
-
   const handleClick = e => {
     e.preventDefault();
-    // console.log('history', props.history);
     props.fetchBeer(id, props.history);
-    // console.log('id.....', id);
   };
 
   return (
-    <Card onClick={handleClick} className="beer-card">
+    <Card className="beer-card" onClick={handleClick}>
       <Image src={beer_label} />
       <Card.Content>
         <Card.Header>{beer_name}</Card.Header>
@@ -26,7 +22,6 @@ const BeerCard = props => {
         <Card.Meta />
       </Card.Content>
     </Card>
-
   );
 };
 
