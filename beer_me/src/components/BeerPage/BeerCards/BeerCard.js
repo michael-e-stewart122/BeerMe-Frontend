@@ -11,12 +11,12 @@ import './BeerCard.css';
 const BeerCard = props => {
   let { id, beer_name, beer_label, brewery_name, style, abv, ibu } = props.beer;
   let { userBeers } = props;
-  console.log(userBeers);
+  // console.log(userBeers);
   let thing = userBeers.find(a => {
     return a.id === id;
   });
 
-  console.log(thing);
+  // console.log(thing);
   const handleClick = e => {
     e.preventDefault();
     props.fetchBeer(id, props.history);
@@ -28,7 +28,7 @@ const BeerCard = props => {
     props.addFavorite(props.user_id, id, props.history);
   };
   let boo = thing !== undefined ? true : false;
-  console.log(boo);
+  // console.log(boo);
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
   return (

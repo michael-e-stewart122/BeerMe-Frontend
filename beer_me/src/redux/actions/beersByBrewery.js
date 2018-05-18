@@ -11,6 +11,7 @@ export const fetchBreweryBeer = (id, history) => {
       let response = await getBeersFromBrewery(id);
       // console.log('hello......');
       let breweryBeers = await response.json();
+      console.log('breweryBeers in actions..', breweryBeers);
       dispatch({
         type: FETCH_BREWERY_BEER_SUCCESS,
         payload: breweryBeers

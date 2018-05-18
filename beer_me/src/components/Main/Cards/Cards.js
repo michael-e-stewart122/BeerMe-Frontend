@@ -13,7 +13,7 @@ const randomizer = (breweries, max) => {
   return breweries[random];
 };
 const Cards = props => {
-  console.log(props);
+  // console.log(props);
   if (props.breweries.length < 1) {
     return <div />;
   } else {
