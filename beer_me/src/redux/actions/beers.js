@@ -18,6 +18,7 @@ export const fetchBeers = () => {
     try {
       let response = await fetch(`${BASE_URL}/beers`);
       let beers = await response.json();
+
       dispatch({
         type: FETCH_BEERS_SUCCESS,
         payload: beers
