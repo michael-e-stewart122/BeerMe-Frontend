@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
-import FetchBeerCard from './FetchBeerCard';
+import FetchBeerCard from './FetchBeerCards/FetchBeerCard';
 
 class FetchBeerPage extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 
-const BreweryJumbo = props => {
+const FetchBreweryJumbo = props => {
   return (
     <div>
       <Jumbotron>
@@ -14,4 +14,4 @@ const BreweryJumbo = props => {
   );
 };
 
-export default BreweryJumbo;
+export default FetchBreweryJumbo;
