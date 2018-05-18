@@ -15,7 +15,6 @@ export default combineReducers({
   breweries,
   fetchBrewery,
   fetchBeer,
-
   filterBeers,
   filterBreweries,
   beersByBrewery,

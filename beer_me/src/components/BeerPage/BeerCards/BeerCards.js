@@ -4,13 +4,25 @@ import BeerCard from './BeerCard';
 import { Container, Card } from 'semantic-ui-react';
 import './BeerCard.css';
 
-const BeerCards = ({ beers, history }) => {
+const BeerCards = ({ beers, history, userBeers }) => {
+  console.log(userBeers);
 
-  let listOfBeers = beers.map(beer => (
-    <BeerCard key={beer.id} history={history} beer={beer} />
-  ));
-
-  return (
+  let listOfBeers =
+    userBeers == undefined ? (
+      <div />
+    ) : (
+      beers.map(beer => (
+        <BeerCard
+          userBeers={userBeers}
+          key={beer.id}
+          history={history}
+          beer={beer}
+        />
+      ))
+    );
+  return userBeers == undefined ? (
+    <div />
+  ) : (
     <Container className="beer-card">
       <Card.Group centered>{listOfBeers}</Card.Group>
     </Container>

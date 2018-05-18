@@ -9,5 +9,5 @@ export default function addFavoriteBeer(user_id, beer_id) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ beer_id })
-  }).then(response => response.json());
+  });
 }
