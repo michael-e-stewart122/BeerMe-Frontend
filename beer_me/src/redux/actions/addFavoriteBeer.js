@@ -14,7 +14,7 @@ export const addFavorite = (user_id, beer_id, history) => {
         type: ADD_FAVORITE_SUCCESS,
         payload: addBeer
       });
-      history.push(`/profile`, addBeer);
+      history.push(`/beers`, addBeer);
     } catch (err) {
       dispatch({
         type: ADD_FAVORITE_FAILED,

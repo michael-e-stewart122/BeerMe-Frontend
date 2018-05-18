@@ -4,8 +4,6 @@ import { bindActionCreators } from 'redux';
 import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 
-// import { fetchBreweryBeer } from '../../../redux/actions/beersByBrewery';
-
 const BreweryCard = props => {
   let {
     id,

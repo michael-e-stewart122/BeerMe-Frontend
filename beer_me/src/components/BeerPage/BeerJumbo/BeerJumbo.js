@@ -1,17 +1,14 @@
 import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+
+import { Container, Header, Icon } from 'semantic-ui-react';
 
 const BeerJumbo = props => {
   return (
     <div>
-      <Jumbotron>
-        <h1 className="display-3">Beer is Yum</h1>
-        <p className="lead">
-          Here you can browse through all the beers in the land.
-        </p>
-        <hr className="my-2" />
-        <p>Search by Name, style, abv or more!</p>
-      </Jumbotron>
+      <Header as="h2" icon textAlign="center">
+        <Icon name="beer" circular />
+        <Header.Content>Let's Grab a Drink!</Header.Content>
+      </Header>
     </div>
   );
 };
