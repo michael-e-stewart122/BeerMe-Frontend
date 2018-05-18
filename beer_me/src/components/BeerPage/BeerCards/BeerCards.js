@@ -5,8 +5,6 @@ import { Container, Card } from 'semantic-ui-react';
 import './BeerCard.css';
 
 const BeerCards = ({ beers, history, userBeers }) => {
-  console.log(userBeers);
-
   let listOfBeers =
     userBeers == undefined ? (
       <div />
