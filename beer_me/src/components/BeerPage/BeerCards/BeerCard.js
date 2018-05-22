@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { fetchBeer } from '../../../redux/actions/fetchBeer';
 
 import { addFavorite } from '../../../redux/actions/addFavoriteBeer';
-
-import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 import './BeerCard.css';
+import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 
 const BeerCard = props => {
+  let disabledState = { disabled: false };
   let { id, beer_name, beer_label, brewery_name, style, abv, ibu } = props.beer;
   let { userBeers } = props;
   // console.log(userBeers);
@@ -25,9 +25,13 @@ const BeerCard = props => {
   const favoriteBeer = e => {
     e.preventDefault();
     e.stopPropagation();
+    e.target.disabled = true;
     props.addFavorite(props.user_id, id, props.history);
   };
-  let boo = thing !== undefined ? true : false;
+  let boo =
+    thing !== undefined
+      ? (disabledState.disabled = true)
+      : (disabledState.disabled = false);
   // console.log(boo);
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
@@ -39,8 +43,8 @@ const BeerCard = props => {
         <Card.Description>{style}</Card.Description>
       </Card.Content>
       <Button
-        disabled={boo}
         className="favorite"
+        disabled={disabledState.disabled}
         secondary
         onClick={favoriteBeer}
         class="ui basic button">
@@ -55,7 +59,6 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({ fetchBeer, addFavorite }, dispatch);
 
 const mapStateToProps = ({ auth }) => ({
-  // console.log('auth', auth);
   user_id: auth.user.id
 });
 

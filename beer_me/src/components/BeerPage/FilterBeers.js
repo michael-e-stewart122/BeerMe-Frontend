@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Button, Form, Form.Group, Label, Form.Field } from 'reactstrap';
+import BeerModal from './BeerModal';
 import { Grid, Segment, Form, Radio } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -54,6 +54,7 @@ class FilterBeers extends Component {
                     id="filter-field"
                   />
                 </Form.Group>
+                <BeerModal />
               </Form>
             </Segment>
           </Grid.Column>
