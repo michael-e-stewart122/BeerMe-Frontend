@@ -14,14 +14,9 @@ class Main extends Component {
             <Grid.Column>
               <HomeHeading />
             </Grid.Column>
-          </Grid.Row>
-          <Grid.Row coulumns={1}>
-            <Grid.Column>
-              <Slideshow />
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Cards history={this.props.history} />
+            <Grid.Row>
+              <Cards history={this.props.history} />
+            </Grid.Row>
           </Grid.Row>
         </Grid>
       </Container>

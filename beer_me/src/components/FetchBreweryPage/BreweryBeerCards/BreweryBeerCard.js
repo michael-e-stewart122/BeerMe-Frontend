@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBeer } from '../../../redux/actions/fetchBeer';
-// import './BeerCard.css';
+import './BreweryBeerCard.css';
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 
 const BreweryBeerCard = props => {

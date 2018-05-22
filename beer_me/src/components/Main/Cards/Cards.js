@@ -17,7 +17,7 @@ const Cards = props => {
   if (props.breweries.length < 1) {
     return <div />;
   } else {
-    let randomBrewery = randomizer(props.breweries, 5);
+    let randomBrewery = randomizer(props.breweries, 10);
     const handleClick = e => {
       e.preventDefault();
       props.fetchBrewery(randomBrewery.id, props.history);
@@ -52,7 +52,7 @@ const Cards = props => {
               </Card.Content>
             </Card>
             <Card onClick={handleClick}>
-              <Image src="https://static.wixstatic.com/media/237fe9_67bed82f024247939a133ddc6325442d~mv2.jpg/v1/fill/w_980,h_413,al_c,q_85,usm_0.66_1.00_0.01/237fe9_67bed82f024247939a133ddc6325442d~mv2.webp" />
+              <Image src={randomBrewery.brewery_logo} />
               <Card.Content>
                 <Card.Header>{randomBrewery.brewery_name}</Card.Header>
                 <Card.Meta />
