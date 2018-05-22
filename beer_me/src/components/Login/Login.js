@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BodyBackgroundColor } from 'react-body-backgroundcolor';
+// import { BodyBackgroundColor } from 'react-body-backgroundcolor';
 
 import {
   Button,
