@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { Button, Form, Form.Group, Label, Form.Field } from 'reactstrap';
-import { Grid, Segment, Form, Radio } from 'semantic-ui-react';
+import { Grid, Segment, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { filterBreweries } from '../../redux/actions/breweries';
@@ -17,7 +16,7 @@ class FilterBreweries extends Component {
           <Grid.Column>
             <Segment inverted>
               <Form inverted>
-                <Form.Group centered>
+                <Form.Group>
                   <Form.Field
                     defaultChecked
                     name="filter-type"

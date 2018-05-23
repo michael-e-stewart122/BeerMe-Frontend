@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import UserBeerCard from './UserBeerCard';
 import { Container, Card } from 'semantic-ui-react';
 

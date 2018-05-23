@@ -1,11 +1,11 @@
 import getUsersFavoriteBeers from '../../api/getUsersFavoriteBeers';
-
+import env from '../../env';
 export const FETCH_USERS_FAVORITE_BEERS_SUCCESS =
   'FETCH_USERS_FAVORITE_BEERS_SUCCESS';
 export const FETCH_USERS_FAVORITE_BEERS_FAILED =
   'FETCH_USERS_FAVORITE_BEERS_FAILED';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = env.API_BASE_URL;
 export const fetchUsersFavoriteBeers = (id, history) => {
   return async dispatch => {
     try {

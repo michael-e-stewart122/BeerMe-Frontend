@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { RingLoader } from 'react-spinners';
-import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+import { Container, Card, Image } from 'semantic-ui-react';
 import './Cards.css';
 
 import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
@@ -48,7 +47,7 @@ const Cards = props => {
               <Card.Content>
                 <Card.Header>Find a Brewery!</Card.Header>
                 <Card.Meta />
-                <Card.Description>Discover a new Beer</Card.Description>
+                <Card.Description>Discover a new Brewery</Card.Description>
               </Card.Content>
             </Card>
             <Card onClick={handleClick}>

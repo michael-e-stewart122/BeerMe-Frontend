@@ -1,9 +1,9 @@
 import getBeer from '../../api/getBeer';
-
+import env from '../../env';
 export const FETCH_BEER_SUCCESS = 'FETCH_BEER_SUCCESS';
 export const FETCH_BEER_FAILED = 'FETCH_BEER_FAILED';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = env.API_BASE_URL;
 
 export const fetchBeer = (id, history) => {
   return async dispatch => {

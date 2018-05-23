@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BeerModal from './BeerModal';
-import { Grid, Segment, Form, Radio } from 'semantic-ui-react';
+import { Grid, Segment, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { filterBeers } from '../../redux/actions/beers';
@@ -17,7 +17,7 @@ class FilterBeers extends Component {
           <Grid.Column>
             <Segment inverted>
               <Form inverted>
-                <Form.Group centered>
+                <Form.Group>
                   <Form.Field
                     defaultChecked
                     name="filter-type"

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, Icon, Grid } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 
 import './Footer.css';
 

@@ -1,9 +1,10 @@
+import env from '../../env';
+
 export const FETCH_BREWERIES_SUCCESS = 'FETCH_BREWERIES_SUCCESS';
 export const FETCH_BREWERIES_FAILED = 'FETCH_BREWERIES_FAILED';
-
 export const FILTER_BREWERY = 'FILTER_BREWERY';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = env.API_BASE_URL;
 export const fetchBreweries = () => {
   return async dispatch => {
     try {

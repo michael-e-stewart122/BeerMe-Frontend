@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import BeerCards from './BeerCards/BeerCards';
 import BeerJumbo from './BeerJumbo/BeerJumbo';
 import FilterBeers from './FilterBeers';
