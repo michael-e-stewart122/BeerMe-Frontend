@@ -44,7 +44,7 @@ const Cards = props => {
               exact
               to="/profile"
               href="/breweries">
-              <Image src="https://i.imgur.com/KTDUc2J.png" />
+              <Image src="https://i.imgur.com/6kDIntc.png" />
               <Card.Content>
                 <Card.Header>Find a Brewery!</Card.Header>
                 <Card.Meta />
