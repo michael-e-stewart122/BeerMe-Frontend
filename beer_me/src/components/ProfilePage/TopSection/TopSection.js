@@ -18,11 +18,11 @@ class TopSection extends Component {
             <Item.Image size="medium" src={profile_pic} />
             <Item.Content>
               <Header size="huge" as="a">
-                {`${first_name} ${last_name}`}
+                {`${first_name || ''} ${last_name || ''}`}
               </Header>
-              <Item.Meta>{location}</Item.Meta>
+              <Item.Meta>{location || ''}</Item.Meta>
               <Item.Description />
-              <Item.Extra>{username}</Item.Extra>
+              <Item.Extra>{username || ''}</Item.Extra>
             </Item.Content>
           </Item>
         </Item.Group>

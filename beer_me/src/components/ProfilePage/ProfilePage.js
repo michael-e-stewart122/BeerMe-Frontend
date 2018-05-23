@@ -8,7 +8,7 @@ import ProfileModal from './ProfileModal';
 class ProfilePage extends Component {
   render() {
     // console.log(this.props);
-    return this.props.userBeers == undefined ? (
+    return this.props.userBeers === undefined ? (
       <div />
     ) : (
       <Container textAlign="left">

@@ -11,7 +11,6 @@ class NavbarComponent extends Component {
     this.props.userLogout();
   };
   render() {
-    console.log(this.props, 'props inside the navbar compnent');
     return (
       <Menu className="nav-bar" stackable inverted>
         <Menu.Item style={{ textDecoration: 'none' }} href="/">
@@ -34,7 +33,6 @@ class NavbarComponent extends Component {
             </Menu.Item>
             <Menu.Item
               style={{ textDecoration: 'none' }}
-              exact
               to="/"
               onClick={this.handleLogout}>
               Logout
@@ -62,7 +60,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   const { auth } = state;
   return { auth };
 }

@@ -8,11 +8,7 @@ class HomeHeading extends Component {
   render() {
     return (
       <div>
-        {/* <Header as="h2" icon textAlign="center">
-          <Icon name="beer" circular />
-          <Header.Content>BeerMe</Header.Content>
-        </Header> */}
-        <Image src="https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg" />
+        <Image src="https://i.imgur.com/iRzBO1g.png" />
       </div>
     );
   }

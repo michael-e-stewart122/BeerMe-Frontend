@@ -7,7 +7,7 @@ import './Footer.css';
 class FooterComponent extends Component {
   render() {
     return (
-      <Menu className="foot-er" fixed="bottom" footer inverted>
+      <Menu className="foot-er" fixed="bottom" inverted>
         <Menu.Item style={{ textDecoration: 'none' }} href="/">
           <Icon name="home" />
           Home

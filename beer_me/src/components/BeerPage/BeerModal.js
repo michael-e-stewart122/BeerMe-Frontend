@@ -14,10 +14,6 @@ import {
   Select
 } from 'semantic-ui-react';
 
-// data.forEach(a => {
-//       $(selectMenu).append(` <option name="${a.img}" value="${a.img}">${a.title}</option>`);
-//     })
-
 class BeerModal extends Component {
   state = {
     open: false,
@@ -34,15 +30,12 @@ class BeerModal extends Component {
   handleSubmit = e => {
     let { brewery_id, beer_name, style, ibu, abv, beer_label } = this.state;
     let attributes = { beer_name, style, ibu, abv, beer_label };
-    console.log(attributes, brewery_id);
     brewery_id = parseInt(brewery_id);
     e.preventDefault();
-    console.log(this.props);
     this.props.createNewBeer(brewery_id, attributes);
   };
 
   render() {
-    console.log(this.props);
     let listOfBreweries = this.props.breweries.map(brewery => (
       <option value={brewery.id}>{brewery.brewery_name}</option>
     ));

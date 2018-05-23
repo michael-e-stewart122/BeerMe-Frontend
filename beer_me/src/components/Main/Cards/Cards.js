@@ -32,7 +32,7 @@ const Cards = props => {
               exact
               to="/profile"
               href="/beers">
-              <Image src="https://learn.kegerator.com/wp-content/uploads/2014/04/beer-faucets.jpg" />
+              <Image src="https://i.imgur.com/36BQXYi.png" />
               <Card.Content>
                 <Card.Header>Find a beer!</Card.Header>
                 <Card.Meta />
@@ -44,7 +44,7 @@ const Cards = props => {
               exact
               to="/profile"
               href="/breweries">
-              <Image src="https://washingtonbeer.com/cms_images/bg-HeadersWorking_500-01.jpg" />
+              <Image src="https://i.imgur.com/6kDIntc.png" />
               <Card.Content>
                 <Card.Header>Find a Brewery!</Card.Header>
                 <Card.Meta />
@@ -52,7 +52,7 @@ const Cards = props => {
               </Card.Content>
             </Card>
             <Card onClick={handleClick}>
-              <Image src={randomBrewery.brewery_logo} />
+              <Image src="https://i.imgur.com/ljiOSxT.png" />
               <Card.Content>
                 <Card.Header>{randomBrewery.brewery_name}</Card.Header>
                 <Card.Meta />
