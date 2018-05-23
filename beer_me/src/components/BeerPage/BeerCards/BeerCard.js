@@ -9,9 +9,18 @@ import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 
 const BeerCard = props => {
   let disabledState = { disabled: false };
-  let { id, beer_name, beer_label, brewery_name, style, abv, ibu } = props.beer;
+  let {
+    id,
+    beer_name,
+    description,
+    beer_label,
+    brewery_name,
+    style,
+    abv,
+    ibu
+  } = props.beer;
+  console.log(props);
   let { userBeers } = props;
-  // console.log(userBeers);
   let thing = userBeers.find(a => {
     return a.id === id;
   });
@@ -19,6 +28,7 @@ const BeerCard = props => {
   // console.log(thing);
   const handleClick = e => {
     e.preventDefault();
+    console.log('beer card id', id);
     props.fetchBeer(id, props.history);
   };
   ////////////////////////////////////////////////////////
@@ -40,7 +50,12 @@ const BeerCard = props => {
       <Image src={beer_label} />
       <Card.Content>
         <Card.Header>{beer_name}</Card.Header>
+        <Card.Description>{brewery_name}</Card.Description>
         <Card.Description>{style}</Card.Description>
+        <Card.Description>ABV: {abv}</Card.Description>
+        <Card.Description>IBU: {ibu || 'N/A'}</Card.Description>
+        <br />
+        <Card.Description>{description}</Card.Description>
       </Card.Content>
       <Button
         className="favorite"

@@ -6,24 +6,32 @@ import './BreweryBeerCard.css';
 import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
 
 const BreweryBeerCard = props => {
-  let { id, beer_name, beer_label, style, abv, ibu } = props.beer;
-  console.log('history', props.history);
+  let {
+    beer_id,
+    description,
+    beer_name,
+    beer_label,
+    style,
+    abv,
+    ibu
+  } = props.beer;
 
   const handleClick = e => {
     e.preventDefault();
-    // console.log(style);
-    // console.log('id.....', id);
-    // console.log('props', props);
-    props.fetchBeer(id, props.history);
+    props.fetchBeer(beer_id, props.history);
   };
   console.log('props.beer', props.beer);
 
   return (
     <Card onClick={handleClick} className="beer-card">
-      <Image top src={beer_label} alt="Card image cap" />
+      <Image src={beer_label} alt="Card image cap" />
       <Card.Content>
         <Card.Header>{beer_name}</Card.Header>
         <Card.Description>{style}</Card.Description>
+        <Card.Description>ABV: {abv}</Card.Description>
+        <Card.Description>IBU: {ibu}</Card.Description>
+        <br />
+        <Card.Description>{description}</Card.Description>
       </Card.Content>
     </Card>
   );

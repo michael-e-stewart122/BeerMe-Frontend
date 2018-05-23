@@ -8,18 +8,21 @@ class Main extends Component {
   render() {
     console.log('this.state', this.state);
     return (
-      <Container>
-        <Grid padded="vertically" divided="vertically">
-          <Grid.Row columns={1}>
-            <Grid.Column>
-              <HomeHeading />
-            </Grid.Column>
-            <Grid.Row>
-              <Cards history={this.props.history} />
+      <div>
+        <Container fluid>
+          <HomeHeading />
+        </Container>
+        <Container>
+          <Grid padded="vertically" divided="vertically">
+            <Grid.Row columns={1}>
+              <Grid.Column />
+              <Grid.Row>
+                <Cards history={this.props.history} />
+              </Grid.Row>
             </Grid.Row>
-          </Grid.Row>
-        </Grid>
-      </Container>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }

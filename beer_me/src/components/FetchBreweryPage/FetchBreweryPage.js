@@ -13,7 +13,7 @@ class FetchBreweryPage extends Component {
       <Container>
         <Row lg="12">
           <Col lg="12">
-            <FetchBreweryJumbo />
+            <FetchBreweryJumbo breweryBeers={breweryBeers} />
           </Col>
         </Row>
         <Row>
