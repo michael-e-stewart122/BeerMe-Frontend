@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Cards from './Cards/Cards';
+<<<<<<< HEAD
+// import Slideshow from './Slideshow/Slideshow';
+=======
+>>>>>>> master
 import HomeHeading from './HomeHeading';
 import { Container, Grid } from 'semantic-ui-react';
 
