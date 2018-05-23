@@ -1,5 +1,4 @@
 import createBeer from '../../api/createBeer';
-
 export const CREATE_BEER_SUCCESS = 'CREATE_BEER_SUCCESS';
 
 export const createNewBeer = (id, attributes) => {

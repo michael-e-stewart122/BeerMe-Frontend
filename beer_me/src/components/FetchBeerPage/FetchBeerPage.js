@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
-import { Container, Grid, Header, Image } from 'semantic-ui-react';
+import { Container, Grid } from 'semantic-ui-react';
 
 import FetchBeerCard from './FetchBeerCards/FetchBeerCard';
 

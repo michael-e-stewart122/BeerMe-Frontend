@@ -24,8 +24,6 @@ export default (state = initialState, action) => {
     case USER_LOGIN_PENDING:
       return { ...state, isLoading: true };
     case USER_LOGIN_SUCCESS:
-      console.log('just dispatched log in', state);
-      console.log('just dispatched log in', action.payload.user);
       return {
         ...state,
         user: action.payload.user,
@@ -52,7 +50,6 @@ export default (state = initialState, action) => {
         showSignupError: false
       };
     case GET_AUTH_SUCCESS:
-      console.log(action.payload, 'reducer payload');
       return { ...state, user: action.payload.user, ...action.payload };
     case GET_AUTH_FAILED:
       return { ...state };

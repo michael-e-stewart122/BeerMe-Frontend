@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import BreweryJumbo from './BreweryJumbo/BreweryJumbo';
 import BreweryCards from './BreweryCards/BreweryCards';
 import FilterBreweries from './FilterBreweries';
 
 class BreweryPage extends Component {
   render() {
-    // console.log('props!!!', this.props);
     return (
       <Container>
         <Row lg="12">

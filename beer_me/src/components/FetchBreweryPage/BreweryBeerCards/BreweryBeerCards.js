@@ -5,7 +5,6 @@ import { Card, Container } from 'semantic-ui-react';
 import './BreweryBeerCard.css';
 
 const BreweryBeerCards = props => {
-  console.log('userbeer props', props);
   let listOfBeers = props.breweryBeers.map(beer => (
     <BreweryBeerCard
       className="beer-card"

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import { Card, Item, Icon, Image, Header } from 'semantic-ui-react';
+import { Item, Header } from 'semantic-ui-react';
 
 const FetchBeerCard = props => {
   let {
@@ -13,7 +13,7 @@ const FetchBeerCard = props => {
     ibu,
     description
   } = props.fetchBeer;
-  console.log(props.fetchBeer);
+
   return (
     <div style={{ marginTop: '2em' }}>
       <Item.Group>

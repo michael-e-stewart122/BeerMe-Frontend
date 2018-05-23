@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBeer } from '../../../redux/actions/fetchBeer';
 import './BreweryBeerCard.css';
-import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 const BreweryBeerCard = props => {
   let {
@@ -20,7 +20,6 @@ const BreweryBeerCard = props => {
     e.preventDefault();
     props.fetchBeer(beer_id, props.history);
   };
-  console.log('props.beer', props.beer);
 
   return (
     <Card onClick={handleClick} className="beer-card">

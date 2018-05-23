@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Menu, Icon } from 'semantic-ui-react';
 import { userLogout } from '../../redux/actions/auth_actions';
 import { connect } from 'react-redux';
