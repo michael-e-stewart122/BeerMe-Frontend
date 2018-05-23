@@ -19,8 +19,6 @@ export const USER_LOGOUT = 'USER_LOGOUT';
 export const GET_AUTH_SUCCESS = 'GET_AUTH_SUCCESS';
 export const GET_AUTH_FAILED = 'GET_AUTH_FAILED';
 
-const BASE_URL = 'http://localhost:8000';
-
 export const userLogin = (credentials, history) => {
   return async dispatch => {
     try {
@@ -30,7 +28,7 @@ export const userLogin = (credentials, history) => {
       const { sub: userId } = decode(token);
       const user = await getUser(userId, { token });
 
-      // dispatch({ type: USER_LOGIN_PENDING });
+      dispatch({ type: USER_LOGIN_PENDING });
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: { user, token }
@@ -81,9 +79,7 @@ export const getAuth = () => {
       const auth = Promise.resolve(authentication());
       let { token, user } = await auth;
       const userBeerResponse = await getUsersFavoriteBeers(user.id);
-      console.log(userBeerResponse, 'user beer response in actions');
       const userBeers = await userBeerResponse.json();
-      console.log('hey am i getting called');
       dispatch({
         type: 'GET_AUTH_SUCCESS',
         payload: {
@@ -92,9 +88,6 @@ export const getAuth = () => {
           isLoggedIn: true,
           token: token,
           authenticatedUserId: user.id
-          // usersById: {
-          //   [user.id]: user
-          // }
         }
       });
     } catch (error) {

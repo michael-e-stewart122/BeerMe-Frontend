@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
+
+import { Container, Row, Col } from 'reactstrap';
 import FetchBreweryJumbo from './FetchBreweryJumbo/FetchBreweryJumbo';
 
 import BreweryBeerCards from './BreweryBeerCards/BreweryBeerCards';
@@ -8,7 +8,6 @@ import BreweryBeerCards from './BreweryBeerCards/BreweryBeerCards';
 class FetchBreweryPage extends Component {
   render() {
     let { breweryBeers } = this.props.history.location.state;
-    console.log('pleassse', breweryBeers);
     return (
       <Container>
         <Row lg="12">
@@ -29,7 +28,4 @@ class FetchBreweryPage extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   console.log(state);
-// };
 export default FetchBreweryPage;

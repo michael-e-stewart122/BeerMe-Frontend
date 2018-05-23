@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import BreweryCard from './BreweryCard';
 import { Container, Card } from 'semantic-ui-react';

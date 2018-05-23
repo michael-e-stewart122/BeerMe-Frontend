@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BodyBackgroundColor } from 'react-body-backgroundcolor';
 
 import {
   Button,
@@ -18,13 +17,13 @@ import selectAuthenticatedUser from '../../redux/selectors/selectAuthenticatedUs
 
 class Login extends Component {
   state = {
+    showLoginError: false,
     email: '',
     password: ''
   };
 
   handleLogin = e => {
     e.preventDefault();
-
     this.props.userLogin(
       {
         email: this.state.email,
@@ -101,7 +100,6 @@ class Login extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('login state2', state);
   return {
     showLoginError: state.auth.showLoginError,
     authenticatedUser: selectAuthenticatedUser(state)
