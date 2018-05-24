@@ -1,16 +1,4 @@
 language: node_js
 node_js:
-  - "stable"
-cache:
-  directories:
-    - node_modules
-deploy:
-  provider: surge
-  project: ./
-  domain: beerMe.surge.sh
-script:
-  - npm run build
-  - npm start
-addons:
-  apt:
-    update: true
+ - “iojs”
+ - “7"
