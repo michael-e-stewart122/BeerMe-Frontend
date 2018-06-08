@@ -15,7 +15,7 @@ export const fetchUsersFavoriteBeers = (id, history) => {
         type: FETCH_USERS_FAVORITE_BEERS_SUCCESS,
         payload: userBeers
       });
-      // history.push(`/breweries/${id}`, userBeers);
+      history.push(`/breweries/${id}`, userBeers);
     } catch (err) {
       dispatch({
         type: FETCH_USERS_FAVORITE_BEERS_FAILED,
