@@ -7,6 +7,7 @@ import ProfileModal from './ProfileModal';
 
 class ProfilePage extends Component {
   render() {
+    console.log(this.props);
     return this.props.user.favorite_beers === undefined ? (
       <div />
     ) : (
