@@ -28,7 +28,7 @@ class ProfilePage extends Component {
 
 const mapStateToProps = (state, props) => ({
   // console.log(state.auth.userBeers, 'profile state');
-  // userBeers: state.auth.user,
+  userBeers: state.auth.user.userBeers,
   user: state.auth.user
 });
 
