@@ -8,6 +8,7 @@ import BreweryBeerCards from './BreweryBeerCards/BreweryBeerCards';
 class FetchBreweryPage extends Component {
   render() {
     let { breweryBeers, brewery } = this.props.history.location.state;
+    console.log(this.props.history);
     return (
       <Container>
         <Row lg="12">
