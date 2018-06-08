@@ -8,7 +8,7 @@ const BASE_URL = env.API_BASE_URL;
 export const fetchBeers = () => {
   return async dispatch => {
     try {
-      let response = await fetch(`/beers`);
+      let response = await fetch(`${BASE_URL}/beers`);
       let beers = await response.json();
 
       dispatch({
