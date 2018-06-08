@@ -8,7 +8,7 @@ import ProfileModal from './ProfileModal';
 class ProfilePage extends Component {
   render() {
     console.log(this.props);
-    return this.props.user.favorite_beers === undefined ? (
+    return this.props.userBeers === undefined ? (
       <div />
     ) : (
       <Container textAlign="left">
@@ -19,7 +19,7 @@ class ProfilePage extends Component {
         <Divider />
         <UserBeerCards
           history={this.props.history}
-          userBeers={this.props.user.favorite_beers}
+          userBeers={this.props.userBeers}
         />
       </Container>
     );
