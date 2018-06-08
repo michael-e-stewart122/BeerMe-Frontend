@@ -9,6 +9,8 @@ class FetchBreweryPage extends Component {
   render() {
     console.log(this.props.history);
     let { breweryBeers, brewery } = this.props.history.location.state;
+    console.log(brewery, 'brewery');
+    console.log(beers, 'beers');
     return (
       <Container>
         <Row lg="12">

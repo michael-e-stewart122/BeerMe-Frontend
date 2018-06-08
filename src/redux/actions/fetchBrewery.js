@@ -10,7 +10,8 @@ export const fetchBrewery = (id, history) => {
     try {
       let response = await getBrewery(id);
       let brewery = await response.json();
-      let breweryBeers = brewery.beers;
+      let beersResponse = await getBeersFromBrewery(id);
+      let breweryBeers = await beersResponse.json();
       dispatch({
         type: FETCH_BREWERY_SUCCESS,
         payload: {
