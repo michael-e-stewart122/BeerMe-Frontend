@@ -4,7 +4,7 @@ export const FETCH_BEERS_SUCCESS = 'FETCH_BEERS_SUCCESS';
 export const FETCH_BEERS_FAILED = 'FETCH_BEERS_FAILED';
 export const FILTER_BEER = 'FILTER_BEER';
 
-const BASE_URL = env.API_BASE_URL;
+const BASE_URL = 'https://rocky-sierra-68795.herokuapp.com';
 export const fetchBeers = () => {
   return async dispatch => {
     console.log('HELLO THERE :-)');
