@@ -7,7 +7,7 @@ import ProfileModal from './ProfileModal';
 
 class ProfilePage extends Component {
   render() {
-    console.log(this.props);
+    console.log(this.state);
     return this.props.userBeers === undefined ? (
       <div />
     ) : (
@@ -28,7 +28,7 @@ class ProfilePage extends Component {
 
 const mapStateToProps = (state, props) => ({
   // console.log(state.auth.userBeers, 'profile state');
-  userBeers: state.auth.user.userBeers,
+  userBeers: state.auth.userBeers,
   user: state.auth.user
 });
 
