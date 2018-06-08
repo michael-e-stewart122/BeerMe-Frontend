@@ -12,7 +12,7 @@ const FetchBreweryJumbo = props => {
     state,
     zip,
     url
-  } = props.breweryBeers[0];
+  } = props.brewery;
 
   return (
     <div style={{ marginTop: '2em' }}>

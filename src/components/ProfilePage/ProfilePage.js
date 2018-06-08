@@ -7,7 +7,7 @@ import ProfileModal from './ProfileModal';
 
 class ProfilePage extends Component {
   render() {
-    return this.props.userBeers === undefined ? (
+    return this.props.user.favorite_beers === undefined ? (
       <div />
     ) : (
       <Container textAlign="left">
@@ -18,7 +18,7 @@ class ProfilePage extends Component {
         <Divider />
         <UserBeerCards
           history={this.props.history}
-          userBeers={this.props.userBeers}
+          userBeers={this.props.user.favorite_beers}
         />
       </Container>
     );
@@ -27,7 +27,7 @@ class ProfilePage extends Component {
 
 const mapStateToProps = (state, props) => ({
   // console.log(state.auth.userBeers, 'profile state');
-  userBeers: state.auth.userBeers,
+  // userBeers: state.auth.user,
   user: state.auth.user
 });
 

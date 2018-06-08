@@ -28,7 +28,7 @@ const Cards = props => {
           <Card.Group centered className="main-cards">
             <Card
               style={{ textDecoration: 'none' }}
-              exact
+              exact="true"
               to="/profile"
               href="/beers">
               <Image src="https://i.imgur.com/36BQXYi.png" />
@@ -40,7 +40,7 @@ const Cards = props => {
             </Card>
             <Card
               style={{ textDecoration: 'none' }}
-              exact
+              exact="true"
               to="/profile"
               href="/breweries">
               <Image src="https://i.imgur.com/6kDIntc.png" />

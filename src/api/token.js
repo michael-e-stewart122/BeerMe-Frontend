@@ -1,6 +1,7 @@
 import env from '../env';
 
 export default async function authenticate(credentials) {
+  console.log(credentials);
   try {
     const response = await fetch(`${env.API_BASE_URL}/token`, {
       method: 'POST',
@@ -10,7 +11,7 @@ export default async function authenticate(credentials) {
       body: JSON.stringify(credentials)
     });
     const body = await response.json();
-
+    console.log(body);
     if (body.error) throw new Error(body.message);
     return body;
     // no try block????

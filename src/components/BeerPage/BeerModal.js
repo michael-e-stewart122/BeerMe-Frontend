@@ -37,7 +37,9 @@ class BeerModal extends Component {
 
   render() {
     let listOfBreweries = this.props.breweries.map(brewery => (
-      <option value={brewery.id}>{brewery.brewery_name}</option>
+      <option key={brewery.id} value={brewery.id}>
+        {brewery.brewery_name}
+      </option>
     ));
     const { open, dimmer } = this.state;
 
@@ -45,11 +47,7 @@ class BeerModal extends Component {
       <div>
         <Button onClick={this.show('blurring')}>Add a Beer!</Button>
 
-        <Modal
-          observeChanges={true}
-          dimmer={dimmer}
-          open={open}
-          onClose={this.close}>
+        <Modal dimmer={dimmer} open={open} onClose={this.close}>
           <Modal.Header>Add a Beer</Modal.Header>
           <Modal.Content image>
             <Form widths="equal" onSubmit={this.handleSubmit}>

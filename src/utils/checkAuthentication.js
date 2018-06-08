@@ -12,14 +12,14 @@ export default async function checkAuthentication({ baseUrl }) {
       return null;
     }
 
-    const { sub: userId, exp: timeExpires } = decode(token);
+    const { identity, exp } = decode(token);
 
-    if (timeExpires * 1000 < Date.now()) {
+    if (exp * 1000 < Date.now()) {
       localStorage.removeItem('token');
       return null;
     }
 
-    const user = await getUser(userId, {
+    const user = await getUser(identity, {
       baseUrl,
       token
     });

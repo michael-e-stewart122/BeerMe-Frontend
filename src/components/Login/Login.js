@@ -37,21 +37,20 @@ class Login extends Component {
     console.log("i'm in login component!!!!!!!!");
 
     return (
-      <Container fluid inverted className="main-wrapper">
+      <Container fluid className="main-wrapper">
         <Grid columns={3} centered>
-          <Grid.Row inverted style={{ marginTop: '15vh' }}>
+          <Grid.Row style={{ marginTop: '15vh' }}>
             <Grid.Column
               style={{
                 border: '1px solid #c9c5c2',
                 borderRadius: '10%',
                 padding: 0,
                 boxShadow: '3px 3px 47px 0px rgba(0,0,0,0.5)'
-              }}
-              inverted>
-              <Segment inverted>
-                <Form centered inverted onSubmit={this.handleLogin}>
+              }}>
+              <Segment>
+                <Form onSubmit={this.handleLogin}>
                   Email:
-                  <Form.Group centered widths="equal">
+                  <Form.Group widths="equal">
                     <Input
                       type="email"
                       name="email"
@@ -83,12 +82,10 @@ class Login extends Component {
                       </Message.Header>
                     </Message>
                   ) : null}
-                  <Button className="mr-3" type="submit" color="dark">
+                  <Button className="mr-3" type="submit">
                     Submit
                   </Button>
-                  <a color="black" href="/signup">
-                    Not a member?
-                  </a>
+                  <a href="/signup">Not a member?</a>
                 </Form>
               </Segment>
             </Grid.Column>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Item, Header } from 'semantic-ui-react';
 
 const FetchBeerCard = props => {
+  console.log(props);
   let {
     id,
     beer_name,
@@ -34,8 +35,4 @@ const FetchBeerCard = props => {
   );
 };
 
-const mapStateToProps = (state, props) => ({
-  fetchBeer: state.fetchBeer
-});
-
-export default connect(mapStateToProps)(FetchBeerCard);
+export default FetchBeerCard;

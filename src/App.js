@@ -50,11 +50,7 @@ export default class App extends Component {
               <Route path="/signup" component={Signup} />
               <Route path="/profile" component={ProfilePage} />
               <Route exact path="/breweries" component={BreweryPage} />
-              <Route
-                exact
-                path="/beers/:id"
-                render={props => <FetchBeerPage />}
-              />
+              <Route exact path="/beers/:id" component={FetchBeerPage} />
               <Route exact path="/breweries/:id" component={FetchBreweryPage} />
               <Footer />
             </div>

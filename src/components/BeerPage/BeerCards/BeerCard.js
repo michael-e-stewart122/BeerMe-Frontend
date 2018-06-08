@@ -61,8 +61,7 @@ const BeerCard = props => {
         className="favorite"
         disabled={disabledState.disabled}
         secondary
-        onClick={favoriteBeer}
-        class="ui basic button">
+        onClick={favoriteBeer}>
         <i className="thumbs up icon" />
         Favorite
       </Button>

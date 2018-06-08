@@ -25,8 +25,10 @@ export const userLogin = (credentials, history) => {
       const { token } = await authenticate(credentials);
 
       localStorage.setItem('token', token);
-      const { sub: userId } = decode(token);
-      const user = await getUser(userId, { token });
+      let decoded = decode(token);
+      console.log(decoded);
+      const { identity } = decode(token);
+      const user = await getUser(identity, { token });
 
       dispatch({ type: USER_LOGIN_PENDING });
       dispatch({
@@ -78,13 +80,13 @@ export const getAuth = () => {
       };
       const auth = Promise.resolve(authentication());
       let { token, user } = await auth;
-      const userBeerResponse = await getUsersFavoriteBeers(user.id);
-      const userBeers = await userBeerResponse.json();
+      // const userBeerResponse = await getUsersFavoriteBeers(user.id);
+      // const userBeers = await userBeerResponse.json();
       dispatch({
         type: 'GET_AUTH_SUCCESS',
         payload: {
           user,
-          userBeers,
+          // userBeers,
           isLoggedIn: true,
           token: token,
           authenticatedUserId: user.id
