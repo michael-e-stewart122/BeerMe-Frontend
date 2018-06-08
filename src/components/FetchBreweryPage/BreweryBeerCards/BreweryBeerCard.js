@@ -6,11 +6,19 @@ import './BreweryBeerCard.css';
 import { Card, Image } from 'semantic-ui-react';
 
 const BreweryBeerCard = props => {
-  let { id, description, beer_name, beer_label, style, abv, ibu } = props.beer;
+  let {
+    beer_id,
+    description,
+    beer_name,
+    beer_label,
+    style,
+    abv,
+    ibu
+  } = props.beer;
   console.log(props);
   const handleClick = e => {
     e.preventDefault();
-    props.fetchBeer(id, props.history);
+    props.fetchBeer(beer_id, props.history);
   };
 
   return (
