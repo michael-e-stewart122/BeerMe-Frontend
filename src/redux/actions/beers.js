@@ -4,10 +4,10 @@ export const FETCH_BEERS_SUCCESS = 'FETCH_BEERS_SUCCESS';
 export const FETCH_BEERS_FAILED = 'FETCH_BEERS_FAILED';
 export const FILTER_BEER = 'FILTER_BEER';
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BASE_URL = env.default;
 export const fetchBeers = () => {
   return async dispatch => {
-    console.log(env);
+    console.log(env.default);
     console.log('HELLO THERE :-)');
     console.log(BASE_URL);
     console.log(process.env);
