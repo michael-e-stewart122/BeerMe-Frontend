@@ -10,7 +10,7 @@ class FetchBreweryPage extends Component {
     console.log(this.props.history);
     let { breweryBeers, brewery } = this.props.history.location.state;
     console.log(brewery, 'brewery');
-    console.log(beers, 'beers');
+    console.log(breweryBeers, 'beers');
     return (
       <Container>
         <Row lg="12">
