@@ -3,7 +3,7 @@ import env from '../env';
 export default async function authenticate(credentials) {
   console.log(credentials);
   try {
-    const response = await fetch(`${env.API_BASE_URL}/token`, {
+    const response = await fetch(`${env.default.API_BASE_URL}/token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

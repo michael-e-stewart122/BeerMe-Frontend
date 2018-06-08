@@ -5,7 +5,7 @@ export default async function getUser(id, { token }) {
   try {
     // const headers = isEmpty(token) ? {} : { Authorization: `Bearer ${token}` };
     const headers = { Authorization: `Bearer ${token}` };
-    const response = await fetch(`${env.API_BASE_URL}/users/${id}`, {
+    const response = await fetch(`${env.default.API_BASE_URL}/users/${id}`, {
       headers
     });
     const body = await response.json();
