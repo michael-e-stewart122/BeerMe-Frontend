@@ -27,8 +27,8 @@ export const userLogin = (credentials, history) => {
       localStorage.setItem('token', token);
       let decoded = decode(token);
       console.log(decoded);
-      const { identity } = decode(token);
-      const user = await getUser(identity, { token });
+      const { sub: user_id } = decode(token);
+      const user = await getUser(user_id, { token });
 
       dispatch({ type: USER_LOGIN_PENDING });
       dispatch({
