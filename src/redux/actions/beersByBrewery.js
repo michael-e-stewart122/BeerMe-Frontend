@@ -3,7 +3,7 @@ import env from '../../env';
 export const FETCH_BREWERY_BEER_SUCCESS = 'FETCH_BREWERY_BEER_SUCCESS';
 export const FETCH_BREWERY_BEER_FAILED = 'FETCH_BREWERY_BEER_FAILED';
 
-const BASE_URL = env.default.API_BASE_URL;
+const BASE_URL = env.default;
 export const fetchBreweryBeer = (id, history) => {
   return async dispatch => {
     try {

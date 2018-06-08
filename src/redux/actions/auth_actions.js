@@ -75,7 +75,7 @@ export const getAuth = () => {
     try {
       const authentication = async () => {
         return await checkAuthentication({
-          baseUrl: env.default.API_BASE_URL
+          baseUrl: env.default
         });
       };
       const auth = Promise.resolve(authentication());

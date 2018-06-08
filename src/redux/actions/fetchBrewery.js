@@ -4,7 +4,7 @@ import env from '../../env';
 export const FETCH_BREWERY_SUCCESS = 'FETCH_BREWERY_SUCCESS';
 export const FETCH_BREWERY_FAILED = 'FETCH_BREWERY_FAILED';
 
-const BASE_URL = env.default.API_BASE_URL;
+const BASE_URL = env.default;
 export const fetchBrewery = (id, history) => {
   return async dispatch => {
     try {

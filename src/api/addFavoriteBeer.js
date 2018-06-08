@@ -2,7 +2,7 @@ import env from '../env';
 
 export default function addFavoriteBeer(user_id, beer_id) {
   console.log('beer_id', beer_id);
-  return fetch(`${env.default.API_BASE_URL}/users/${user_id}/beers`, {
+  return fetch(`${env.default}/users/${user_id}/beers`, {
     // mode: 'cors',
     method: 'POST',
     headers: {

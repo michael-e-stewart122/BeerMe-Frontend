@@ -5,7 +5,7 @@ export const FETCH_USERS_FAVORITE_BEERS_SUCCESS =
 export const FETCH_USERS_FAVORITE_BEERS_FAILED =
   'FETCH_USERS_FAVORITE_BEERS_FAILED';
 
-const BASE_URL = env.default.API_BASE_URL;
+const BASE_URL = env.default;
 export const fetchUsersFavoriteBeers = (id, history) => {
   return async dispatch => {
     try {

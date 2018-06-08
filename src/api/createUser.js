@@ -1,7 +1,7 @@
 import env from '../env';
 
 export default function createUser(attributes) {
-  return fetch(`${env.default.API_BASE_URL}/register`, {
+  return fetch(`${env.default}/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

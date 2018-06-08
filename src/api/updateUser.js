@@ -1,7 +1,7 @@
 import env from '../env';
 
 export default function createUser(id, attributes) {
-  return fetch(`${env.default.API_BASE_URL}/users/${id}`, {
+  return fetch(`${env.default}/users/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
