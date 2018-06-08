@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
         ...state,
         user: action.payload.user,
         token: action.payload.token,
-        userBeers: action.payload.user.favorite_beers,
+        userBeers: action.payload.userBeers,
         isLoggedIn: true,
         isLoading: false
       };
