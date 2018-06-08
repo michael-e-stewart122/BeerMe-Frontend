@@ -7,6 +7,7 @@ export const FILTER_BEER = 'FILTER_BEER';
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 export const fetchBeers = () => {
   return async dispatch => {
+    console.log(env);
     console.log('HELLO THERE :-)');
     console.log(BASE_URL);
     console.log(process.env);
