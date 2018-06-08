@@ -80,13 +80,13 @@ export const getAuth = () => {
       };
       const auth = Promise.resolve(authentication());
       let { token, user } = await auth;
-      // const userBeerResponse = await getUsersFavoriteBeers(user.id);
-      // const userBeers = await userBeerResponse.json();
+      const userBeerResponse = await getUsersFavoriteBeers(user.id);
+      const userBeers = await userBeerResponse.json();
       dispatch({
         type: 'GET_AUTH_SUCCESS',
         payload: {
           user,
-          // userBeers,
+          userBeers,
           isLoggedIn: true,
           token: token,
           authenticatedUserId: user.id
