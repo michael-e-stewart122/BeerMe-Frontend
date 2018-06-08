@@ -7,15 +7,11 @@ const BASE_URL = env.default;
 export const fetchBreweryBeer = (id, history) => {
   return async dispatch => {
     try {
-      // console.log('hello before response');
       let response = await getBeersFromBrewery(id);
-      // console.log('hello......');
       let breweryBeers = await response.json();
-      console.log('breweryBeers in actions..', breweryBeers);
       dispatch({
         type: FETCH_BREWERY_BEER_SUCCESS,
         payload: breweryBeers
-        // breweryBeer
       });
       history.push(`/breweries/${id}`, breweryBeers);
     } catch (err) {
