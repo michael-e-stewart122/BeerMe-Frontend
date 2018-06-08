@@ -4,7 +4,7 @@ export const FETCH_BREWERIES_SUCCESS = 'FETCH_BREWERIES_SUCCESS';
 export const FETCH_BREWERIES_FAILED = 'FETCH_BREWERIES_FAILED';
 export const FILTER_BREWERY = 'FILTER_BREWERY';
 
-const BASE_URL = env.API_BASE_URL;
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 export const fetchBreweries = () => {
   return async dispatch => {
     try {
