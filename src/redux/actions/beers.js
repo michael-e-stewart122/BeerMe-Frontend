@@ -6,9 +6,9 @@ export const FILTER_BEER = 'FILTER_BEER';
 
 const BASE_URL = env.API_BASE_URL;
 export const fetchBeers = () => {
-  console.log(BASE_URL);
-  console.log(process.env);
   return async dispatch => {
+    console.log(BASE_URL);
+    console.log(process.env);
     try {
       let response = await fetch(`${BASE_URL}/beers`);
       let beers = await response.json();
