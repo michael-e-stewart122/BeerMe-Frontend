@@ -1,17 +1,25 @@
-import React, { Component } from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
-import { userLogout } from '../../redux/actions/auth_actions';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import './Navbar.css';
+import React, { Component } from 'react'
+import { Menu, Icon } from 'semantic-ui-react'
+import { userLogout } from '../../redux/actions/auth_actions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import LoginModal from './LoginModal'
+import SignupModal from './SignupModal'
+import './Navbar.css'
 class NavbarComponent extends Component {
   handleLogout = e => {
-    e.preventDefault();
-    this.props.userLogout();
-  };
+    e.preventDefault()
+    this.props.userLogout()
+  }
   render() {
     return (
-      <Menu className="nav-bar" stackable inverted>
+      <Menu
+        style={{
+          boxShadow: '1px 1px 10px 0.5px rgba(30, 31, 38, 0.58)'
+        }}
+        className="nav-bar"
+        stackable
+        inverted>
         <Menu.Item style={{ textDecoration: 'none' }} href="/">
           <Icon name="home" />
           Home
@@ -39,28 +47,24 @@ class NavbarComponent extends Component {
           </Menu.Menu>
         ) : (
           <Menu.Menu position="right">
-            <Menu.Item style={{ textDecoration: 'none' }} href="/signup">
-              Sign Up
-            </Menu.Item>
-            <Menu.Item style={{ textDecoration: 'none' }} href="/login">
-              Login
-            </Menu.Item>
+            <SignupModal />
+            <LoginModal />
           </Menu.Menu>
         )}
       </Menu>
-    );
+    )
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     userLogout: bindActionCreators(userLogout, dispatch)
-  };
+  }
 }
 
 function mapStateToProps(state) {
-  const { auth } = state;
-  return { auth };
+  const { auth } = state
+  return { auth }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent)

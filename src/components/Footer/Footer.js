@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { Menu, Icon } from 'semantic-ui-react'
 
-import './Footer.css';
+import './Footer.css'
 
 class FooterComponent extends Component {
   render() {
     return (
-      <Menu className="foot-er" fixed="bottom" inverted>
+      <Menu
+        style={{
+          boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
+        }}
+        className="foot-er"
+        fixed="bottom"
+        inverted>
         <Menu.Item style={{ textDecoration: 'none' }} href="/">
           <Icon name="home" />
           Home
@@ -20,9 +26,6 @@ class FooterComponent extends Component {
           Breweries
         </Menu.Item>
         <Menu.Menu position="right">
-          <Menu.Item style={{ textDecoration: 'none' }} href="/signup">
-            About
-          </Menu.Item>
           <Menu.Item
             style={{ textDecoration: 'none' }}
             href="https://github.com/carlcorsini/BeerMe-Frontend">
@@ -30,8 +33,8 @@ class FooterComponent extends Component {
           </Menu.Item>
         </Menu.Menu>
       </Menu>
-    );
+    )
   }
 }
 
-export default FooterComponent;
+export default FooterComponent

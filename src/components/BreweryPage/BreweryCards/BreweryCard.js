@@ -1,19 +1,23 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchBrewery } from '../../../redux/actions/fetchBrewery';
-import { Card, Image } from 'semantic-ui-react';
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchBrewery } from '../../../redux/actions/fetchBrewery'
+import { Card, Image } from 'semantic-ui-react'
 
 const BreweryCard = props => {
-  let { id, brewery_name, brewery_logo, city, state } = props.brewery;
+  let { id, brewery_name, brewery_logo, city, state } = props.brewery
 
   const handleClick = e => {
-    e.preventDefault();
-    props.fetchBrewery(id, props.history);
-  };
+    e.preventDefault()
+    props.fetchBrewery(id, props.history)
+  }
 
   return (
-    <Card onClick={handleClick}>
+    <Card
+      style={{
+        boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
+      }}
+      onClick={handleClick}>
       <Image src={brewery_logo} alt="Card image cap" />
       <Card.Content>
         <Card.Header>{brewery_name}</Card.Header>
@@ -21,10 +25,10 @@ const BreweryCard = props => {
         <Card.Meta>{state}</Card.Meta>
       </Card.Content>
     </Card>
-  );
-};
+  )
+}
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchBrewery }, dispatch);
+  bindActionCreators({ fetchBrewery }, dispatch)
 
-export default connect(null, mapDispatchToProps)(BreweryCard);
+export default connect(null, mapDispatchToProps)(BreweryCard)

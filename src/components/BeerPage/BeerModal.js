@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { createNewBeer } from '../../redux/actions/createBeer';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createNewBeer } from '../../redux/actions/beers'
 
 import {
   Popup,
@@ -12,7 +12,7 @@ import {
   Form,
   Input,
   Select
-} from 'semantic-ui-react';
+} from 'semantic-ui-react'
 
 class BeerModal extends Component {
   state = {
@@ -22,38 +22,44 @@ class BeerModal extends Component {
     style: '',
     ibu: '',
     abv: '',
-    beer_label: ''
-  };
-  show = dimmer => () => this.setState({ dimmer, open: true });
-  close = () => this.setState({ open: false });
+    beer_label:
+      'https://image.freepik.com/free-vector/vector-illustration-with-fresh-lager-beer-in-a-beer-mug-on-transparent-background_1314-523.jpg'
+  }
+  show = dimmer => () => this.setState({ dimmer, open: true })
+  close = () => this.setState({ open: false })
 
   handleSubmit = e => {
-    let { brewery_id, beer_name, style, ibu, abv, beer_label } = this.state;
-    let attributes = { beer_name, style, ibu, abv, beer_label };
-    brewery_id = parseInt(brewery_id);
-    e.preventDefault();
-    this.props.createNewBeer(brewery_id, attributes);
-  };
+    let { brewery_id, beer_name, style, ibu, abv, beer_label } = this.state
+    let attributes = { beer_name, style, ibu, abv, beer_label, brewery_id }
+    brewery_id = parseInt(brewery_id)
+    e.preventDefault()
+    console.log(attributes)
+    this.props.createNewBeer(brewery_id, attributes, this.props.token)
+  }
 
   render() {
     let listOfBreweries = this.props.breweries.map(brewery => (
       <option key={brewery.id} value={brewery.id}>
         {brewery.brewery_name}
       </option>
-    ));
-    const { open, dimmer } = this.state;
-
+    ))
+    const { open, dimmer } = this.state
+    // console.log(this.props);
     return (
       <div>
         <Button onClick={this.show('blurring')}>Add a Beer!</Button>
 
-        <Modal dimmer={dimmer} open={open} onClose={this.close}>
+        <Modal
+          style={{ width: '45%' }}
+          dimmer={dimmer}
+          open={open}
+          onClose={this.close}>
           <Modal.Header>Add a Beer</Modal.Header>
           <Modal.Content image>
             <Form widths="equal" onSubmit={this.handleSubmit}>
               <Form.Field
                 onChange={e => {
-                  this.setState({ brewery_id: e.target.value });
+                  this.setState({ brewery_id: e.target.value })
                 }}
                 label="Brewery"
                 control="select">
@@ -62,7 +68,7 @@ class BeerModal extends Component {
               <Form.Group>
                 <Form.Field
                   onChange={e => {
-                    this.setState({ beer_name: e.target.value });
+                    this.setState({ beer_name: e.target.value })
                   }}
                   control={Input}
                   label="Beer name"
@@ -72,7 +78,7 @@ class BeerModal extends Component {
               <Form.Group>
                 <Form.Field
                   onChange={e => {
-                    this.setState({ style: e.target.value });
+                    this.setState({ style: e.target.value })
                   }}
                   control={Input}
                   label="Style"
@@ -82,7 +88,7 @@ class BeerModal extends Component {
               <Form.Group>
                 <Form.Field
                   onChange={e => {
-                    this.setState({ ibu: e.target.value });
+                    this.setState({ ibu: e.target.value })
                   }}
                   control={Input}
                   label="IBU"
@@ -92,7 +98,7 @@ class BeerModal extends Component {
               <Form.Group>
                 <Form.Field
                   onChange={e => {
-                    this.setState({ abv: e.target.value });
+                    this.setState({ abv: e.target.value })
                   }}
                   control={Input}
                   label="ABV"
@@ -102,7 +108,7 @@ class BeerModal extends Component {
               <Form.Group>
                 <Form.Field
                   onChange={e => {
-                    this.setState({ beer_label: e.target.value });
+                    this.setState({ beer_label: e.target.value })
                   }}
                   control={Input}
                   label="Beer Logo"
@@ -125,18 +131,19 @@ class BeerModal extends Component {
           </Modal.Actions>
         </Modal>
       </div>
-    );
+    )
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     createNewBeer: bindActionCreators(createNewBeer, dispatch)
-  };
+  }
 }
 
-const mapStateToProps = ({ breweries }) => ({
-  breweries
-});
+const mapStateToProps = state => ({
+  breweries: state.breweries,
+  token: state.auth.token
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeerModal);
+export default connect(mapStateToProps, mapDispatchToProps)(BeerModal)

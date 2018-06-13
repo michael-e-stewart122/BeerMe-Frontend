@@ -1,8 +1,8 @@
 import env from '../env'
 
-export default function createBeer(id, attributes, token) {
+export default function createReview(attributes, token) {
   console.log(token)
-  return fetch(`${env.default}/beers`, {
+  return fetch(`${env.default}/reviews`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

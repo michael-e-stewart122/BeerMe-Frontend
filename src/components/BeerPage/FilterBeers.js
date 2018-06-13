@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import BeerModal from './BeerModal';
-import { Grid, Segment, Form } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { filterBeers } from '../../redux/actions/beers';
+import React, { Component } from 'react'
+import BeerModal from './BeerModal'
+import { Grid, Segment, Form } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { filterBeers } from '../../redux/actions/beers'
 
 class FilterBeers extends Component {
   render() {
     let filterState = {
       filterType: 'beer_name'
-    };
-    console.log(filterState, 'filter Type');
+    }
+    console.log(filterState, 'filter Type')
     return (
       <Grid centered>
-        <Grid.Row columns={2}>
+        <Grid.Row columns={3}>
           <Grid.Column>
-            <Segment inverted>
+            <Segment
+              style={{
+                boxShadow: '1px 1px 10px 2px rgba(30, 31, 38, 0.58)',
+                marginTop: '1em',
+                borderRadius: '15px 15px'
+              }}
+              inverted>
               <Form inverted>
                 <Form.Group>
                   <Form.Field
@@ -24,8 +30,8 @@ class FilterBeers extends Component {
                     control="input"
                     type="radio"
                     onClick={e => {
-                      filterState = { filterType: 'beer_name' };
-                      console.log(filterState);
+                      filterState = { filterType: 'beer_name' }
+                      console.log(filterState)
                     }}
                   />
                   Name
@@ -34,13 +40,12 @@ class FilterBeers extends Component {
                     control="input"
                     type="radio"
                     onClick={e => {
-                      filterState = { filterType: 'style' };
-                      console.log(filterState);
+                      filterState = { filterType: 'style' }
+                      console.log(filterState)
                     }}
                   />
                   Style
                 </Form.Group>
-                Filter:
                 <Form.Group widths="equal">
                   <Form.Input
                     onChange={e =>
@@ -52,6 +57,7 @@ class FilterBeers extends Component {
                     type="text"
                     name="filter-beers"
                     id="filter-field"
+                    placeholder="filter by name or style of beer"
                   />
                 </Form.Group>
                 <BeerModal />
@@ -60,11 +66,11 @@ class FilterBeers extends Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    );
+    )
   }
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ filterBeers }, dispatch);
+  bindActionCreators({ filterBeers }, dispatch)
 
-export default connect(null, mapDispatchToProps)(FilterBeers);
+export default connect(null, mapDispatchToProps)(FilterBeers)

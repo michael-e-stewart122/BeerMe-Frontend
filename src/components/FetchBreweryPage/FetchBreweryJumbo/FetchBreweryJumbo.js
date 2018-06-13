@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { Header, Image } from 'semantic-ui-react';
+import { Header, Image } from 'semantic-ui-react'
 
 const FetchBreweryJumbo = props => {
   let {
@@ -12,11 +12,18 @@ const FetchBreweryJumbo = props => {
     state,
     zip,
     url
-  } = props.brewery;
+  } = props.brewery
 
   return (
     <div style={{ marginTop: '2em' }}>
-      <Image centered src={brewery_logo} />
+      <Image
+        style={{
+          borderRadius: '10px 10px',
+          boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
+        }}
+        centered
+        src={brewery_logo}
+      />
       <Header as="h2" textAlign="center" attached="top">
         <Header.Content>{brewery_name}</Header.Content> <br />
         <Header.Content>{address}</Header.Content> <br />
@@ -28,7 +35,7 @@ const FetchBreweryJumbo = props => {
         </Header.Content>
       </Header>
     </div>
-  );
-};
+  )
+}
 
-export default FetchBreweryJumbo;
+export default FetchBreweryJumbo

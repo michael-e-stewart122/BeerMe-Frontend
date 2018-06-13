@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
   Button,
@@ -8,10 +8,10 @@ import {
   Input,
   Message,
   Segment
-} from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { userSignup } from '../../redux/actions/auth_actions';
+} from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { userSignup } from '../../redux/actions/auth_actions'
 
 export class Signup extends Component {
   state = {
@@ -23,9 +23,9 @@ export class Signup extends Component {
     username: '',
     password: '',
     verify_password: ''
-  };
+  }
   userSignup = e => {
-    e.preventDefault();
+    e.preventDefault()
     let {
       first_name,
       last_name,
@@ -33,12 +33,13 @@ export class Signup extends Component {
       email,
       password,
       verify_password
-    } = this.state;
+    } = this.state
     if (!password || password !== verify_password || !verify_password) {
+      console.log('bad!')
       this.setState({
-        passwordClasses: this.state.passwordClasses + ' is-invalid',
         isValid: false
-      });
+      })
+      console.log(this.state)
     } else {
       let newUser = {
         first_name,
@@ -46,11 +47,11 @@ export class Signup extends Component {
         email,
         username,
         password
-      };
-      console.log('newUser', newUser);
-      this.props.userSignup({ newUser }, this.props.history);
+      }
+      console.log('newUser', newUser)
+      this.props.userSignup(newUser, this.props.history)
     }
-  };
+  }
 
   render() {
     return (
@@ -64,7 +65,7 @@ export class Signup extends Component {
                 boxShadow: '3px 3px 47px 0px rgba(0,0,0,0.5)'
               }}>
               <Segment inverted>
-                <Form centered inverted onSubmit={this.userSignup}>
+                <Form warning centered inverted onSubmit={this.userSignup}>
                   <Form.Group centered widths="equal">
                     Name
                     <br />
@@ -123,6 +124,7 @@ export class Signup extends Component {
                     Password
                     <br />
                     <Input
+                      minLength="8"
                       type="password"
                       name="password"
                       id="password-field"
@@ -146,10 +148,8 @@ export class Signup extends Component {
                         this.setState({ verify_password: e.target.value })
                       }
                     />
-                    {!this.state.isValid ? (
-                      <Message warning color="danger">
-                        <Message.Header>Passwords do not match</Message.Header>
-                      </Message>
+                    {this.state.isValid == false ? (
+                      <Message warning header="Passwords do not match" />
                     ) : null}
                   </Form.Group>
                   <Button color="dark" type="submit">
@@ -161,14 +161,14 @@ export class Signup extends Component {
           </Grid.Row>
         </Grid>
       </Container>
-    );
+    )
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     userSignup: bindActionCreators(userSignup, dispatch)
-  };
+  }
 }
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(null, mapDispatchToProps)(Signup)

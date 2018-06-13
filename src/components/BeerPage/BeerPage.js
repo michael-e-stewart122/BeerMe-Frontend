@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
-import BeerCards from './BeerCards/BeerCards';
-import BeerJumbo from './BeerJumbo/BeerJumbo';
-import FilterBeers from './FilterBeers';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Container, Row, Col } from 'reactstrap'
+import BeerCards from './BeerCards/BeerCards'
+import BeerJumbo from './BeerJumbo/BeerJumbo'
+import FilterBeers from './FilterBeers'
 
 class BeerPage extends Component {
   render() {
-    console.log('hellllloooooooo');
-    console.log(this.state);
     return (
       <Container>
         <Row lg="12">
           <Col lg="12">
-            <BeerJumbo />
-          </Col>
-          <Col lg="12">
+            <br />
             <FilterBeers />
           </Col>
         </Row>
@@ -26,13 +22,11 @@ class BeerPage extends Component {
           />
         </Row>
       </Container>
-    );
+    )
   }
 }
 const mapStateToProps = ({ auth }) => ({
   userBeers: auth.userBeers
-});
+})
 
-export default connect(mapStateToProps, null)(BeerPage);
-
-// export default BeerPage;
+export default connect(mapStateToProps, null)(BeerPage)

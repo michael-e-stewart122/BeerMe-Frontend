@@ -1,12 +1,16 @@
-import { CREATE_BEER_SUCCESS } from '../actions/createBeer';
+import { CREATE_BEER_SUCCESS } from '../actions/createBeer'
 
-const initialState = [];
+const initialState = { beers: [] }
 
 export default (state = initialState, { type, payload }) => {
+  console.log('fuck you you fuck')
   switch (type) {
     case CREATE_BEER_SUCCESS:
-      return { ...state, payload };
+      console.log(payload)
+      return {
+        beers: [...state.beers, { ...payload }]
+      }
     default:
-      return state;
+      return state
   }
-};
+}

@@ -1,4 +1,4 @@
-import env from '../env';
+import env from '../env'
 
 export default function deleteUser(id) {
   return fetch(`${env.default}/users/${id}`, {
@@ -6,5 +6,5 @@ export default function deleteUser(id) {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(response => response.json());
+  }).then(response => response.json())
 }

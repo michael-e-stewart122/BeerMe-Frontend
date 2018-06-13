@@ -1,14 +1,21 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchBeer } from '../../../redux/actions/fetchBeer';
-
-import { addFavorite } from '../../../redux/actions/addFavoriteBeer';
-import './BeerCard.css';
-import { Container, Card, Button, Image, Icon, Grid } from 'semantic-ui-react';
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchBeer } from '../../../redux/actions/fetchBeer'
+import { addFavorite } from '../../../redux/actions/auth_actions'
+import './BeerCard.css'
+import {
+  Container,
+  Card,
+  Button,
+  Image,
+  Icon,
+  Grid,
+  Rating
+} from 'semantic-ui-react'
 
 const BeerCard = props => {
-  let disabledState = { disabled: false };
+  let disabledState = { disabled: false }
   let {
     id,
     beer_name,
@@ -17,36 +24,39 @@ const BeerCard = props => {
     brewery_name,
     style,
     abv,
-    ibu
-  } = props.beer;
-  console.log(props);
-  let { userBeers } = props;
-  let thing = userBeers.find(a => {
-    return a.id === id;
-  });
+    ibu,
+    reviews,
+    average_rating
+  } = props.beer
 
-  // console.log(thing);
+  let { userBeers } = props
+  let findIfUserFavoritedBeer = userBeers.find(a => {
+    return a.id === id
+  })
+
   const handleClick = e => {
-    e.preventDefault();
-    console.log('beer card id', id);
-    props.fetchBeer(id, props.history);
-  };
-  ////////////////////////////////////////////////////////
+    e.preventDefault()
+    console.log('beer card id', id)
+    props.fetchBeer(id, props.history)
+  }
+
   const favoriteBeer = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    e.target.disabled = true;
-    props.addFavorite(props.user_id, id, props.history);
-  };
-  let boo =
-    thing !== undefined
-      ? (disabledState.disabled = true)
-      : (disabledState.disabled = false);
-  // console.log(boo);
-  //////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////
+    e.preventDefault()
+    e.stopPropagation()
+    e.target.disabled = true
+    props.addFavorite(props.user_id, id, props.history)
+  }
+
+  findIfUserFavoritedBeer !== undefined
+    ? (disabledState.disabled = true)
+    : (disabledState.disabled = false)
+
   return (
-    <Card onClick={handleClick} className="beer-card">
+    <Card
+      style={{
+        boxShadow: '1px 1px 10px 2px rgba(30, 31, 38, 0.58)'
+      }}
+      onClick={handleClick}>
       <Image src={beer_label} />
       <Card.Content>
         <Card.Header>{beer_name}</Card.Header>
@@ -54,26 +64,34 @@ const BeerCard = props => {
         <Card.Description>{style}</Card.Description>
         <Card.Description>ABV: {abv}</Card.Description>
         <Card.Description>IBU: {ibu || 'N/A'}</Card.Description>
+        <Rating
+          size="large"
+          disabled
+          icon="star"
+          rating={average_rating}
+          maxRating={5}
+        />
+        <br />
         <br />
         <Card.Description>{description}</Card.Description>
       </Card.Content>
       <Button
         className="favorite"
-        disabled={disabledState.disabled}
         secondary
+        disabled={disabledState.disabled}
         onClick={favoriteBeer}>
-        <i className="thumbs up icon" />
+        <i className="heart icon" />
         Favorite
       </Button>
     </Card>
-  );
-};
+  )
+}
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchBeer, addFavorite }, dispatch);
+  bindActionCreators({ fetchBeer, addFavorite }, dispatch)
 
 const mapStateToProps = ({ auth }) => ({
   user_id: auth.user.id
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeerCard);
+export default connect(mapStateToProps, mapDispatchToProps)(BeerCard)
