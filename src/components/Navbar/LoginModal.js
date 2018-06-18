@@ -51,44 +51,38 @@ class LoginModal extends Component {
         </Menu.Item>
 
         <Modal
+          centered="true"
           basic
-          style={{ width: '25%' }}
           dimmer={dimmer}
           open={open}
           onClose={this.close}>
           <Header>Login</Header>
-          <Modal.Content style={{ paddingTop: '1px' }} image>
-            <Form warning onSubmit={this.handleLogin}>
+          <Modal.Content image>
+            <Form style={{ width: '50%' }} warning onSubmit={this.handleLogin}>
               <Form.Group widths="equal">
-                <Input
+                <Form.Field
+                  style={{ textAlign: 'center' }}
+                  control={Input}
                   type="email"
                   name="email"
-                  id="email-field"
                   placeholder="email"
-                  value={this.state.email}
                   onChange={e => this.setState({ email: e.target.value })}
                 />
               </Form.Group>
               <Form.Group widths="equal">
-                <Input
+                <Form.Field
+                  style={{ textAlign: 'center' }}
+                  control={Input}
                   type="password"
                   name="password"
-                  id="pass-field"
                   placeholder="password"
-                  value={this.state.password}
                   onChange={e => this.setState({ password: e.target.value })}
                 />
               </Form.Group>
-              <Button
-                basic
-                inverted
-                color="green"
-                className="mr-3"
-                type="submit">
+              <Button inverted color="green" className="mr-3" type="submit">
                 Submit
               </Button>
               <Button
-                basic
                 inverted
                 color="red"
                 content="Close"
@@ -97,7 +91,6 @@ class LoginModal extends Component {
               {this.props.showLoginError ? (
                 <Message
                   color="red"
-                  style={{ width: '79%' }}
                   warning
                   header="email or password is incorrect"
                 />

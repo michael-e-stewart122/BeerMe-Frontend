@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Divider, Tab } from 'semantic-ui-react'
+import { Container, Divider, Tab, Grid, Header } from 'semantic-ui-react'
 import TopSection from './TopSection/TopSection'
 import UserBeerCards from './UserBeerCards/UserBeerCards'
 import ReviewCards from './ReviewCards/ReviewCards'
+import Cards from './Cards'
+import getUser from '../../api/getUser'
 
 class ProfilePage extends Component {
   render() {
@@ -28,11 +30,23 @@ class ProfilePage extends Component {
         )
       }
     ]
-    return this.props.userBeers === undefined ? (
+    return !this.props.user ? (
       <div />
     ) : (
       <Container textAlign="left">
-        <TopSection user={this.props.user} />
+        <Grid columns={2}>
+          <Grid.Column>
+            <TopSection user={this.props.user} />
+          </Grid.Column>
+          <Grid.Column>
+            <div style={{ marginTop: '3em' }}>
+              <Header as="h2" style={{ textAlign: 'center' }}>
+                Friends
+              </Header>
+              <Cards friends={this.props.user.friends} />
+            </div>
+          </Grid.Column>
+        </Grid>
         <br />
         <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
       </Container>

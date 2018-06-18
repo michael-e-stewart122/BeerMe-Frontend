@@ -24,12 +24,7 @@ const UserBeerCard = props => {
   }
 
   return (
-    <Card
-      style={{
-        boxShadow: '1px 1px 10px 2px rgba(30, 31, 38, 0.58)'
-      }}
-      onClick={handleClick}
-      className="beer-card">
+    <Card raised onClick={handleClick} className="beer-card">
       <Image src={beer_label} alt="Card image cap" />
       <Card.Content>
         <Card.Header>{beer_name}</Card.Header>

@@ -27,9 +27,9 @@ const Cards = props => {
         <Container className="main-cards">
           <Card.Group centered className="main-cards">
             <Card
+              raised
               style={{
-                textDecoration: 'none',
-                boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
+                textDecoration: 'none'
               }}
               exact="true"
               to="/profile"
@@ -42,9 +42,9 @@ const Cards = props => {
               </Card.Content>
             </Card>
             <Card
+              raised
               style={{
-                textDecoration: 'none',
-                boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
+                textDecoration: 'none'
               }}
               exact="true"
               to="/profile"
@@ -57,9 +57,9 @@ const Cards = props => {
               </Card.Content>
             </Card>
             <Card
+              raised
               style={{
-                textDecoration: 'none',
-                boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
+                textDecoration: 'none'
               }}
               onClick={handleClick}>
               <Image src="https://i.imgur.com/ljiOSxT.png" />

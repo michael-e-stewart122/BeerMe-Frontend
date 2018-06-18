@@ -12,7 +12,7 @@ class FilterBreweries extends Component {
     console.log(filterState, 'filter Type')
     return (
       <Grid centered>
-        <Grid.Row columns={3}>
+        <Grid.Row columns={2}>
           <Grid.Column>
             <Segment
               style={{

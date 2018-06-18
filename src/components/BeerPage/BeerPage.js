@@ -26,7 +26,7 @@ class BeerPage extends Component {
   }
 }
 const mapStateToProps = ({ auth }) => ({
-  userBeers: auth.userBeers
+  userBeers: auth.user.beers || ['none']
 })
 
 export default connect(mapStateToProps, null)(BeerPage)

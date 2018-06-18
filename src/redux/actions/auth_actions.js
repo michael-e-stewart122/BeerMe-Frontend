@@ -34,7 +34,6 @@ export const userLogin = (credentials, history) => {
       const { identity: user_id } = decode(token)
       console.log(user_id)
       const user = await getUser(user_id, { token })
-
       dispatch({ type: USER_LOGIN_PENDING })
       dispatch({
         type: USER_LOGIN_SUCCESS,
@@ -81,8 +80,20 @@ export const getAuth = () => {
           baseUrl: env.default
         })
       }
-      const auth = Promise.resolve(authentication())
+      const auth = authentication()
       let { token, user } = await auth
+      console.log(user.friends, '23423423424234sdfjshdfjsdfkj')
+
+      let friendsArray = user.friends
+
+      user.friends = []
+      friendsArray.forEach(async friend => {
+        let userResponse = await getUser(friend)
+
+        user.friends.push(userResponse)
+        friendsArray.push(userResponse)
+      })
+
       const userBeers = user.beers
       dispatch({
         type: 'GET_AUTH_SUCCESS',

@@ -13,7 +13,7 @@ class FilterBeers extends Component {
     console.log(filterState, 'filter Type')
     return (
       <Grid centered>
-        <Grid.Row columns={3}>
+        <Grid.Row columns={2}>
           <Grid.Column>
             <Segment
               style={{
@@ -60,7 +60,9 @@ class FilterBeers extends Component {
                     placeholder="filter by name or style of beer"
                   />
                 </Form.Group>
-                <BeerModal />
+                <div style={{ textAlign: 'center' }}>
+                  <BeerModal />
+                </div>
               </Form>
             </Segment>
           </Grid.Column>

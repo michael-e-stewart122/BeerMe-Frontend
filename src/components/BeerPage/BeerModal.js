@@ -16,6 +16,7 @@ import {
 
 class BeerModal extends Component {
   state = {
+    addBeerAvailable: false,
     open: false,
     brewery_id: 1,
     beer_name: '',
@@ -44,91 +45,129 @@ class BeerModal extends Component {
       </option>
     ))
     const { open, dimmer } = this.state
-    // console.log(this.props);
     return (
       <div>
-        <Button onClick={this.show('blurring')}>Add a Beer!</Button>
-
+        <Button
+          disabled={!this.props.isLoggedIn}
+          primary
+          onClick={this.show('blurring')}>
+          Add a Beer!
+        </Button>
         <Modal
-          style={{ width: '45%' }}
+          basic
+          centered="true"
           dimmer={dimmer}
           open={open}
           onClose={this.close}>
           <Modal.Header>Add a Beer</Modal.Header>
           <Modal.Content image>
-            <Form widths="equal" onSubmit={this.handleSubmit}>
-              <Form.Field
-                onChange={e => {
-                  this.setState({ brewery_id: e.target.value })
-                }}
-                label="Brewery"
-                control="select">
-                {listOfBreweries}
-              </Form.Field>
-              <Form.Group>
+            <Form style={{ width: '40%' }} onSubmit={this.handleSubmit}>
+              <div
+                style={{ textAlign: 'center' }}
+                class="ui pointing below inverted black basic label">
+                Brewery
+              </div>
+              <Form.Group widths="equal">
                 <Form.Field
+                  onChange={e => {
+                    this.setState({ brewery_id: e.target.value })
+                  }}
+                  control="select">
+                  {listOfBreweries}
+                </Form.Field>
+              </Form.Group>
+              <div
+                style={{ textAlign: 'center' }}
+                class="ui pointing below inverted black basic label">
+                Beer Name
+              </div>
+              <Form.Group widths="equal">
+                <Form.Field
+                  required
                   onChange={e => {
                     this.setState({ beer_name: e.target.value })
                   }}
                   control={Input}
-                  label="Beer name"
                   placeholder="Beer name"
                 />
               </Form.Group>
-              <Form.Group>
+              <div
+                style={{ textAlign: 'center' }}
+                class="ui pointing below inverted black basic label">
+                Style
+              </div>
+              <Form.Group widths="equal">
                 <Form.Field
+                  required
                   onChange={e => {
                     this.setState({ style: e.target.value })
                   }}
                   control={Input}
-                  label="Style"
                   placeholder="Style"
                 />
               </Form.Group>
-              <Form.Group>
+              <div
+                style={{ textAlign: 'center' }}
+                class="ui pointing below inverted black basic label">
+                IBU (International Bittering Unit)
+              </div>
+              <Form.Group widths="equal">
                 <Form.Field
                   onChange={e => {
                     this.setState({ ibu: e.target.value })
                   }}
                   control={Input}
-                  label="IBU"
                   placeholder="IBU"
                 />
               </Form.Group>
-              <Form.Group>
+              <div
+                style={{ textAlign: 'center' }}
+                class="ui pointing below inverted black basic label">
+                ABV (Alchol By Volume)
+              </div>
+              <Form.Group widths="equal">
                 <Form.Field
+                  required
                   onChange={e => {
                     this.setState({ abv: e.target.value })
                   }}
                   control={Input}
-                  label="ABV"
                   placeholder="ABV"
                 />
               </Form.Group>
-              <Form.Group>
+              <div
+                style={{ textAlign: 'center' }}
+                class="ui pointing below inverted black basic label">
+                Add A Photo
+              </div>
+              <Form.Group widths="equal">
                 <Form.Field
                   onChange={e => {
                     this.setState({ beer_label: e.target.value })
                   }}
                   control={Input}
-                  label="Beer Logo"
-                  placeholder="Beer Logo"
+                  placeholder="Image URL"
                 />
               </Form.Group>
-              <Form.Field type="submit" control={Button}>
-                Submit
-              </Form.Field>
+              <div style={{ textAlign: 'center' }}>
+                <Button
+                  icon="thumbs up"
+                  inverted
+                  content="submit"
+                  color="green"
+                  type="submit"
+                />
+                <Button
+                  color="red"
+                  inverted
+                  icon="checkmark"
+                  labelPosition="right"
+                  content="Close"
+                  onClick={this.close}
+                />
+              </div>
             </Form>
           </Modal.Content>
-          <Modal.Actions>
-            <Button
-              positive
-              icon="checkmark"
-              labelPosition="right"
-              content="Confirm Changes"
-              onClick={this.close}
-            />
-          </Modal.Actions>
         </Modal>
       </div>
     )
@@ -143,7 +182,8 @@ function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = state => ({
   breweries: state.breweries,
-  token: state.auth.token
+  token: state.auth.token,
+  isLoggedIn: state.auth.isLoggedIn
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BeerModal)

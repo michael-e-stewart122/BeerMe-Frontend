@@ -17,11 +17,7 @@ const ReviewCard = props => {
   let { id, review_title, review_body, review_img, rating } = props.review
 
   return (
-    <Card
-      style={{
-        boxShadow: '1px 1px 10px 2px rgba(30, 31, 38, 0.58)'
-      }}
-      className="beer-card">
+    <Card raised className="beer-card">
       <Image src={review_img} />
       <Card.Content>
         <Card.Header>{review_title}</Card.Header>

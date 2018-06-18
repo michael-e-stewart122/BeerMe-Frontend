@@ -47,16 +47,12 @@ const BeerCard = props => {
     props.addFavorite(props.user_id, id, props.history)
   }
 
-  findIfUserFavoritedBeer !== undefined
+  findIfUserFavoritedBeer !== undefined || !props.user_id
     ? (disabledState.disabled = true)
     : (disabledState.disabled = false)
 
   return (
-    <Card
-      style={{
-        boxShadow: '1px 1px 10px 2px rgba(30, 31, 38, 0.58)'
-      }}
-      onClick={handleClick}>
+    <Card raised onClick={handleClick}>
       <Image src={beer_label} />
       <Card.Content>
         <Card.Header>{beer_name}</Card.Header>

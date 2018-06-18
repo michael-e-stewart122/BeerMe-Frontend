@@ -13,7 +13,8 @@ import {
   Input,
   TextArea,
   Select,
-  Rating
+  Rating,
+  Message
 } from 'semantic-ui-react'
 
 class ReviewModal extends Component {
@@ -62,65 +63,112 @@ class ReviewModal extends Component {
         </Button>
 
         <Modal
-          style={{ width: '30%' }}
+          centered="true"
+          basic
           dimmer={dimmer}
           open={open}
           onClose={this.close}>
-          <Modal.Header>Review A Beer</Modal.Header>
+          <Modal.Header>What did you think?</Modal.Header>
+
           <Modal.Content image>
-            <Form onSubmit={this.handleSubmit}>
+            <Form success style={{ width: '60%' }} onSubmit={this.handleSubmit}>
+              <br />
+
+              <div class="ui pointing below inverted black basic label">
+                Headline
+              </div>
               <Form.Group widths="equal">
+                <br />
+                <br />
                 <Form.Field
+                  required
+                  inverted
+                  style={{ color: '#ffffff !important' }}
+                  labelColor="white"
+                  color="white"
                   onChange={e => {
                     this.setState({ review_title: e.target.value })
                   }}
                   control={Input}
-                  label="Review Title"
-                  placeholder="Review Title"
+                  placeholder="What's most important to know?"
                 />
+              </Form.Group>
+              <div class="ui pointing below inverted black basic label">
+                Add a 'pitcher' it'll last longer...
+              </div>
+              <Form.Group widths="equal">
+                <br />
+                <br />
                 <Form.Field
                   onChange={e => {
                     this.setState({ review_img: e.target.value })
                   }}
                   control={Input}
-                  label="Review Image"
-                  placeholder="Review Image"
+                  placeholder="Photo URL (optional)"
                 />
               </Form.Group>
+              <div class="ui pointing below inverted black basic label">
+                Review
+              </div>
               <Form.Field
+                maxLength="750"
+                required
                 onChange={e => {
                   this.setState({ review_body: e.target.value })
                 }}
                 control={TextArea}
-                label="Review Body"
-                placeholder="Review Body"
-              />{' '}
-              Rating <br />
+                placeholder="Write your review here. What did you like the most? What did you like the least?"
+              />
               <br />
-              <Rating
-                maxRating={5}
-                onRate={(e, d) => {
-                  this.setState({ rating: d.rating })
-                }}
-                label="Rating"
-                placeholder="Rating"
-              />{' '}
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  style={{ textAlign: 'center' }}
+                  class="ui pointing below inverted orange basic label">
+                  Rate Here!
+                </div>
+                <br />
+                <Rating
+                  size="massive"
+                  maxRating={5}
+                  defaultRating={3}
+                  onRate={(e, d) => {
+                    this.setState({ rating: d.rating })
+                  }}
+                />
+              </div>
               <br />
               <br />
-              <Form.Field type="submit" control={Button}>
-                Submit
-              </Form.Field>
+              <div style={{ textAlign: 'center' }}>
+                <Button
+                  icon="thumbs up"
+                  inverted
+                  labelPosition="left"
+                  color="green"
+                  type="submit"
+                  content="Submit"
+                />
+                <Button
+                  inverted
+                  color="red"
+                  icon="close"
+                  labelPosition="left"
+                  content="Close"
+                  onClick={this.close}
+                />
+              </div>
+              {this.props.createReviewSuccess ? (
+                <Message
+                  color="green"
+                  inverted
+                  success
+                  header="Review Created!"
+                />
+              ) : null}
+              {this.props.createReviewSuccess == false ? (
+                <Message color="red" inverted success header="Review Failed" />
+              ) : null}
             </Form>
           </Modal.Content>
-          <Modal.Actions>
-            <Button
-              positive
-              icon="checkmark"
-              labelPosition="left"
-              content="Confirm Review"
-              onClick={this.close}
-            />
-          </Modal.Actions>
         </Modal>
       </div>
     )
@@ -136,7 +184,8 @@ function mapDispatchToProps(dispatch) {
 const mapStateToProps = state => ({
   breweries: state.breweries,
   token: state.auth.token,
-  user: state.auth.user
+  user: state.auth.user,
+  createReviewSuccess: state.beers.createReviewSuccess
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewModal)

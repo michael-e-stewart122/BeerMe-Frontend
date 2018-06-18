@@ -73,96 +73,89 @@ class SignupModal extends Component {
 
         <Modal
           basic
-          style={{ width: '25%' }}
+          centered="true"
           dimmer={dimmer}
           open={open}
           onClose={this.close}>
           <Header>Sign Up</Header>
           <Modal.Content style={{ paddingTop: '1px' }} image>
-            <Form success warning onSubmit={this.userSignup}>
+            <Form
+              style={{ width: '45%' }}
+              success
+              warning
+              onSubmit={this.userSignup}>
               <Form.Group widths="equal">
-                <Input
+                <Form.Input
+                  control={Input}
                   required
                   type="text"
                   name="first_name"
-                  id="first_name-field"
                   placeholder="First Name"
-                  value={this.state.first_name}
                   onChange={e => this.setState({ first_name: e.target.value })}
                 />
               </Form.Group>
               <Form.Group widths="equal">
                 <br />
-                <Input
+                <Form.Input
+                  control={Input}
                   required
                   type="last_name"
                   name="last_name"
-                  id="last_name-field"
                   placeholder="Last Name"
-                  value={this.state.last_name}
                   onChange={e => this.setState({ last_name: e.target.value })}
                 />
               </Form.Group>
               <Form.Group widths="equal">
                 <br />
-                <Input
+                <Form.Input
+                  control={Input}
                   type="email"
                   name="email"
-                  id="email-field"
                   placeholder="Email"
-                  value={this.state.email}
                   onChange={e => this.setState({ email: e.target.value })}
                 />
               </Form.Group>
               <Form.Group widths="equal">
                 <br />
-                <Input
+                <Form.Input
+                  control={Input}
                   required
                   type="text"
                   name="username"
-                  id="username-field"
                   placeholder="Username"
-                  value={this.state.username}
                   onChange={e => this.setState({ username: e.target.value })}
                 />
               </Form.Group>
+              <div class="ui pointing below red basic label">
+                Password must contain at least one number and one uppercase and
+                lowercase letter, and at least 8 or more characters.
+              </div>
               <Form.Group widths="equal">
-                <br />
-                <Input
+                <Form.Input
+                  control={Input}
                   required
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                   onInvalid={e => this.setState({ isPasswordStrong: false })}
                   type="password"
                   name="password"
-                  id="password-field"
                   placeholder="Password"
-                  value={this.state.password}
                   onChange={e => this.setState({ password: e.target.value })}
                 />
               </Form.Group>
               <Form.Group widths="equal">
-                <br />
-                <Input
+                <Form.Input
+                  control={Input}
                   required
                   type="password"
                   name="password"
-                  id="verify_password"
                   placeholder="Verify Password"
-                  value={this.state.verify_password}
                   onChange={e =>
                     this.setState({ verify_password: e.target.value })
                   }
                 />
               </Form.Group>
+              <Button content="Sign Up" inverted color="green" type="submit" />
               <Button
-                basic
-                content="Sign Up"
-                inverted
-                color="green"
-                type="submit"
-              />
-              <Button
-                basic
                 inverted
                 color="red"
                 content="Close"
@@ -173,7 +166,7 @@ class SignupModal extends Component {
                   color="red"
                   inverted
                   warning
-                  header="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                  header="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters."
                 />
               ) : null}
               {!this.state.isValid ? (

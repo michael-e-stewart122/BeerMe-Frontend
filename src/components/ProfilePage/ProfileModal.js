@@ -56,7 +56,9 @@ class ProfileModal extends Component {
     const { open, dimmer } = this.state
     return (
       <div style={{ marginRight: '10em' }}>
-        <Button onClick={this.show('blurring')}>Edit</Button>
+        <Button secondary onClick={this.show('blurring')}>
+          Edit
+        </Button>
 
         <Modal
           style={{ width: '45%' }}

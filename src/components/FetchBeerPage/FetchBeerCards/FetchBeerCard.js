@@ -19,10 +19,12 @@ const FetchBeerCard = props => {
     average_rating
   } = props.fetchBeer
   let { userBeers } = props
-
-  let findIfUserFavoritedBeer = userBeers.find(a => {
-    return a.id === id
-  })
+  let findIfUserFavoritedBeer
+  if (props.user.beers) {
+    findIfUserFavoritedBeer = props.user.beers.find(a => {
+      return a.id === id
+    })
+  }
   findIfUserFavoritedBeer !== undefined
     ? (disabledState.disabled = true)
     : (disabledState.disabled = false)
@@ -85,7 +87,11 @@ const mapDispatchToProps = dispatch =>
 
 const mapStateToProps = state => {
   console.log(state)
-  return { userBeers: state.auth.userBeers, user_id: state.auth.user.id }
+  return {
+    user: state.auth.user,
+    userBeers: state.auth.userBeers,
+    user_id: state.auth.user.id
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FetchBeerCard)

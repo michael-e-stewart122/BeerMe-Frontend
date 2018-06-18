@@ -7,6 +7,7 @@ class HomeHeading extends Component {
       <div>
         <Image
           style={{
+            width: '100%',
             boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
           }}
           src="https://i.imgur.com/iRzBO1g.png"

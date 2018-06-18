@@ -13,11 +13,7 @@ const BreweryCard = props => {
   }
 
   return (
-    <Card
-      style={{
-        boxShadow: '1px 1px 10px 1px rgba(30, 31, 38, 0.58)'
-      }}
-      onClick={handleClick}>
+    <Card raised onClick={handleClick}>
       <Image src={brewery_logo} alt="Card image cap" />
       <Card.Content>
         <Card.Header>{brewery_name}</Card.Header>

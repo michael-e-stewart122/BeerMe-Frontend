@@ -3,6 +3,7 @@ import createBeer from '../../api/createBeer'
 import createReview from '../../api/createReview'
 
 export const CREATE_REVIEW_SUCCESS = 'CREATE_REVIEW_SUCCESS'
+export const CREATE_REVIEW_FAILED = 'CREATE_REVIEW_FAILED'
 
 export const CREATE_BEER_SUCCESS = 'CREATE_BEER_SUCCESS'
 
@@ -63,6 +64,7 @@ export const createNewReview = (attributes, token) => {
       const review = await response.json()
       dispatch({ type: CREATE_REVIEW_SUCCESS, payload: review })
     } catch (error) {
+      dispatch({ type: CREATE_REVIEW_FAILED, payload: error })
       console.log(error)
     }
   }
