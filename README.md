@@ -27,7 +27,7 @@
   * Semantic UI
   
 ## Back End Technologies
-  # Javascript:
+  ### Javascript:
    * bcryptjs
    * JWT
    * express
@@ -38,7 +38,7 @@
    * Mocha
    * Chai
   
-  # Python:
+  ### Python:
    * Flask
    * PostgreSQL
    * SQL Alchemy
