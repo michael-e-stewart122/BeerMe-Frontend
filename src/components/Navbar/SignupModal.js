@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { createNewBeer } from '../../redux/actions/beers'
-import selectAuthenticatedUser from '../../redux/selectors/selectAuthenticatedUser'
 import { userSignup } from '../../redux/actions/auth_actions'
 
 import {
-  Popup,
   Button,
   Header,
-  Image,
   Modal,
   Form,
   Input,
-  Select,
   Message,
   Menu
 } from 'semantic-ui-react'
@@ -66,7 +61,6 @@ class SignupModal extends Component {
       <div>
         <Menu.Item
           style={{ textDecoration: 'none' }}
-          inverted
           onClick={this.show('blurring')}>
           Sign Up
         </Menu.Item>

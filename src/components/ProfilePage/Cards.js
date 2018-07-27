@@ -1,18 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Container, Card, Image, Description } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 import './Cards.css'
 
 import { fetchBrewery } from '../../redux/actions/fetchBrewery'
 import { fetchBreweryBeer } from '../../redux/actions/beersByBrewery'
 
-const randomizer = (breweries, max) => {
-  let random = Math.floor(Math.random() * Math.floor(max))
-  return breweries[random]
-}
 const Cards = props => {
-  console.log(props.user, '<<<<<<<<<<<<<<<<')
   return !props.user.friends ? (
     <div />
   ) : (

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Grid, Button, Divider } from 'semantic-ui-react'
-import { connect } from 'react-redux'
+import { Container, Grid, Divider } from 'semantic-ui-react'
 import ReviewCards from './ReviewCards/ReviewCards'
 import FetchBeerCard from './FetchBeerCards/FetchBeerCard'
 

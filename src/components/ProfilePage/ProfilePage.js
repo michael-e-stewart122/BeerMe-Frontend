@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Divider, Tab, Grid, Header } from 'semantic-ui-react'
+import { Container, Tab, Grid, Header } from 'semantic-ui-react'
 import TopSection from './TopSection/TopSection'
 import UserBeerCards from './UserBeerCards/UserBeerCards'
 import ReviewCards from './ReviewCards/ReviewCards'
 import Cards from './Cards'
-import getUser from '../../api/getUser'
 
 class ProfilePage extends Component {
   render() {

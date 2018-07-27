@@ -14,7 +14,6 @@ const UserBeerCard = props => {
     style,
     abv,
     ibu,
-    reviews,
     average_rating
   } = props.beer
 

@@ -22,7 +22,6 @@ let initialState = {
 }
 
 export default (state = initialState, action) => {
-  console.log(state)
   switch (action.type) {
     case USER_LOGIN_PENDING:
       return { ...state, isLoading: true }

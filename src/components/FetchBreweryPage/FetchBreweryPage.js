@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Container, Row, Col } from 'reactstrap';
-import FetchBreweryJumbo from './FetchBreweryJumbo/FetchBreweryJumbo';
+import { Container, Row, Col } from 'reactstrap'
+import FetchBreweryJumbo from './FetchBreweryJumbo/FetchBreweryJumbo'
 
-import BreweryBeerCards from './BreweryBeerCards/BreweryBeerCards';
+import BreweryBeerCards from './BreweryBeerCards/BreweryBeerCards'
 
 class FetchBreweryPage extends Component {
   render() {
-    console.log(this.props.history);
-    let { breweryBeers, brewery } = this.props.history.location.state;
-    console.log(brewery, 'brewery');
-    console.log(breweryBeers, 'beers');
+    let { breweryBeers, brewery } = this.props.history.location.state
     return (
       <Container>
         <Row lg="12">
@@ -27,8 +24,8 @@ class FetchBreweryPage extends Component {
           </Col>
         </Row>
       </Container>
-    );
+    )
   }
 }
 
-export default FetchBreweryPage;
+export default FetchBreweryPage

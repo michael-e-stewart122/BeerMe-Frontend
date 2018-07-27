@@ -9,7 +9,6 @@ class FilterBreweries extends Component {
     let filterState = {
       filterType: 'brewery_name'
     }
-    console.log(filterState, 'filter Type')
     return (
       <Grid centered>
         <Grid.Row columns={2}>
@@ -30,7 +29,6 @@ class FilterBreweries extends Component {
                     type="radio"
                     onClick={e => {
                       filterState = { filterType: 'brewery_name' }
-                      console.log(filterState)
                     }}
                   />
                   Name
@@ -40,7 +38,6 @@ class FilterBreweries extends Component {
                     type="radio"
                     onClick={e => {
                       filterState = { filterType: 'location' }
-                      console.log(filterState)
                     }}
                   />
                   City

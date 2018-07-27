@@ -1,7 +1,6 @@
 import env from '../env'
 
 export default function createReview(attributes, token) {
-  console.log(token)
   return fetch(`${env.default}/reviews`, {
     method: 'POST',
     headers: {

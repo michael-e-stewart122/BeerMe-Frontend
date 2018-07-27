@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import BreweryJumbo from './BreweryJumbo/BreweryJumbo'
 import BreweryCards from './BreweryCards/BreweryCards'
 import FilterBreweries from './FilterBreweries'
 

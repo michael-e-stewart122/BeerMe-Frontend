@@ -14,10 +14,6 @@ export const FILTER_BEER = 'FILTER_BEER'
 const BASE_URL = env.default
 export const fetchBeers = () => {
   return async dispatch => {
-    console.log(env.default)
-    console.log('HELLO THERE :-)')
-    console.log(BASE_URL)
-    console.log(process.env)
     try {
       let response = await fetch(`${BASE_URL}/beers`)
       let beers = await response.json()
@@ -49,11 +45,8 @@ export const createNewBeer = (id, attributes, token) => {
     try {
       const beer = await createBeer(id, attributes, token)
       const beerJSON = await beer.json()
-      // console.log(beerJSON)
       dispatch({ type: CREATE_BEER_SUCCESS, payload: beerJSON })
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 }
 
@@ -65,7 +58,6 @@ export const createNewReview = (attributes, token) => {
       dispatch({ type: CREATE_REVIEW_SUCCESS, payload: review })
     } catch (error) {
       dispatch({ type: CREATE_REVIEW_FAILED, payload: error })
-      console.log(error)
     }
   }
 }

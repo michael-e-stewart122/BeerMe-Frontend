@@ -8,8 +8,6 @@ export const createNewBeer = (id, attributes, token) => {
       const beerJSON = await beer.json()
 
       dispatch({ type: CREATE_BEER_SUCCESS, payload: beerJSON })
-    } catch (error) {
-      console.log(error)
-    }
+    } catch (error) {}
   }
 }

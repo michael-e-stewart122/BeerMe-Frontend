@@ -1,20 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import './ReviewCard.css'
-import {
-  Container,
-  Card,
-  Button,
-  Image,
-  Icon,
-  Grid,
-  Rating
-} from 'semantic-ui-react'
+import { Card, Image, Rating } from 'semantic-ui-react'
 
 const ReviewCard = props => {
-  let disabledState = { disabled: false }
-  let { id, review_title, review_body, review_img, rating } = props.review
+  let { review_title, review_body, review_img, rating } = props.review
 
   return (
     <Card

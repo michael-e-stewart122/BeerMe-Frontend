@@ -16,7 +16,6 @@ const BreweryBeerCard = props => {
     ibu,
     average_rating
   } = props.beer
-  console.log(props)
   const handleClick = e => {
     e.preventDefault()
     props.fetchBeer(id, props.history)

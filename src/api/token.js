@@ -1,7 +1,6 @@
-import env from '../env';
+import env from '../env'
 
 export default async function authenticate(credentials) {
-  console.log(credentials);
   try {
     const response = await fetch(`${env.default}/token`, {
       method: 'POST',
@@ -9,14 +8,13 @@ export default async function authenticate(credentials) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(credentials)
-    });
-    const body = await response.json();
-    console.log(body);
-    if (body.error) throw new Error(body.message);
-    return body;
+    })
+    const body = await response.json()
+    if (body.error) throw new Error(body.message)
+    return body
     // no try block????
   } catch (error) {
-    if (error.message.startsWith('AuthenticationService.ERROR_')) throw error;
-    throw new Error('AuthenticationService.ERROR_UNEXPECTED');
+    if (error.message.startsWith('AuthenticationService.ERROR_')) throw error
+    throw new Error('AuthenticationService.ERROR_UNEXPECTED')
   }
 }

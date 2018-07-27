@@ -4,15 +4,11 @@ import { bindActionCreators } from 'redux'
 import { createNewReview } from '../../../redux/actions/beers'
 
 import {
-  Popup,
   Button,
-  Header,
-  Image,
   Modal,
   Form,
   Input,
   TextArea,
-  Select,
   Rating,
   Message
 } from 'semantic-ui-react'
@@ -41,23 +37,14 @@ class ReviewModal extends Component {
     }
     e.preventDefault()
     attributes.user_id = this.props.user.id
-    console.log(this.props.user.id)
-    console.log(attributes)
     this.props.createNewReview(attributes, this.props.token)
   }
 
   render() {
     const { open, dimmer } = this.state
-    console.log(this.props.user.id, 'user id')
-    console.log(this.state)
-    console.log(this.props.token)
     return (
       <div>
-        <Button
-          // className="review"
-          // disabled={disabledState.disabled}
-          secondary
-          onClick={this.show('blurring')}>
+        <Button secondary onClick={this.show('blurring')}>
           <i className="edit icon" />
           Write Review
         </Button>
@@ -164,7 +151,7 @@ class ReviewModal extends Component {
                   header="Review Created!"
                 />
               ) : null}
-              {this.props.createReviewSuccess == false ? (
+              {this.props.createReviewSuccess === false ? (
                 <Message color="red" inverted success header="Review Failed" />
               ) : null}
             </Form>

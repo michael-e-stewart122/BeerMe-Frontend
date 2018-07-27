@@ -4,15 +4,13 @@ import { bindActionCreators } from 'redux'
 import { updateProfile } from '../../redux/actions/updateUser'
 import { destroyUser } from '../../redux/actions/deleteUser'
 import {
-  Popup,
   Button,
   Header,
   Image,
   Modal,
   Form,
   Input,
-  TextArea,
-  Select
+  TextArea
 } from 'semantic-ui-react'
 
 class ProfileModal extends Component {
@@ -30,7 +28,6 @@ class ProfileModal extends Component {
   handleSubmit = e => {
     let { first_name, last_name, username, location, bio } = this.state
     let attributes = { first_name, last_name, username, location, bio }
-    console.log(attributes)
     e.preventDefault()
     this.props.updateProfile(1, attributes)
   }
@@ -47,10 +44,7 @@ class ProfileModal extends Component {
       location,
       profile_pic,
       username,
-      reviews,
-      bio,
-      beers,
-      favorite_style
+      bio
     } = this.props.user
 
     const { open, dimmer } = this.state

@@ -6,7 +6,7 @@ import './BeerCard.css'
 
 const BeerCards = ({ beers, history, userBeers }) => {
   let listOfBeers =
-    userBeers == undefined ? (
+    userBeers === undefined ? (
       <div />
     ) : (
       beers.map(beer => (
@@ -18,7 +18,7 @@ const BeerCards = ({ beers, history, userBeers }) => {
         />
       ))
     )
-  return userBeers == undefined ? (
+  return userBeers === undefined ? (
     <div />
   ) : (
     <Container className="beer-card">

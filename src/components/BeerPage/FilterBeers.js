@@ -10,7 +10,6 @@ class FilterBeers extends Component {
     let filterState = {
       filterType: 'beer_name'
     }
-    console.log(filterState, 'filter Type')
     return (
       <Grid centered>
         <Grid.Row columns={2}>
@@ -31,7 +30,6 @@ class FilterBeers extends Component {
                     type="radio"
                     onClick={e => {
                       filterState = { filterType: 'beer_name' }
-                      console.log(filterState)
                     }}
                   />
                   Name
@@ -41,7 +39,6 @@ class FilterBeers extends Component {
                     type="radio"
                     onClick={e => {
                       filterState = { filterType: 'style' }
-                      console.log(filterState)
                     }}
                   />
                   Style

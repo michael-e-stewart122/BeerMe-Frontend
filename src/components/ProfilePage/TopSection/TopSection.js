@@ -10,9 +10,7 @@ class TopSection extends Component {
       location,
       profile_pic,
       username,
-      reviews,
       bio,
-      beers,
       favorite_style
     } = this.props.user
     return (

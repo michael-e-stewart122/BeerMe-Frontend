@@ -3,16 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createNewBeer } from '../../redux/actions/beers'
 
-import {
-  Popup,
-  Button,
-  Header,
-  Image,
-  Modal,
-  Form,
-  Input,
-  Select
-} from 'semantic-ui-react'
+import { Button, Modal, Form, Input } from 'semantic-ui-react'
 
 class BeerModal extends Component {
   state = {
@@ -32,9 +23,8 @@ class BeerModal extends Component {
   handleSubmit = e => {
     let { brewery_id, beer_name, style, ibu, abv, beer_label } = this.state
     let attributes = { beer_name, style, ibu, abv, beer_label, brewery_id }
-    brewery_id = parseInt(brewery_id)
+    brewery_id = Number(brewery_id)
     e.preventDefault()
-    console.log(attributes)
     this.props.createNewBeer(brewery_id, attributes, this.props.token)
   }
 
@@ -64,7 +54,7 @@ class BeerModal extends Component {
             <Form style={{ width: '40%' }} onSubmit={this.handleSubmit}>
               <div
                 style={{ textAlign: 'center' }}
-                class="ui pointing below inverted black basic label">
+                className="ui pointing below inverted black basic label">
                 Brewery
               </div>
               <Form.Group widths="equal">
@@ -78,7 +68,7 @@ class BeerModal extends Component {
               </Form.Group>
               <div
                 style={{ textAlign: 'center' }}
-                class="ui pointing below inverted black basic label">
+                className="ui pointing below inverted black basic label">
                 Beer Name
               </div>
               <Form.Group widths="equal">
@@ -93,7 +83,7 @@ class BeerModal extends Component {
               </Form.Group>
               <div
                 style={{ textAlign: 'center' }}
-                class="ui pointing below inverted black basic label">
+                className="ui pointing below inverted black basic label">
                 Style
               </div>
               <Form.Group widths="equal">
@@ -108,7 +98,7 @@ class BeerModal extends Component {
               </Form.Group>
               <div
                 style={{ textAlign: 'center' }}
-                class="ui pointing below inverted black basic label">
+                className="ui pointing below inverted black basic label">
                 IBU (International Bittering Unit)
               </div>
               <Form.Group widths="equal">
@@ -122,7 +112,7 @@ class BeerModal extends Component {
               </Form.Group>
               <div
                 style={{ textAlign: 'center' }}
-                class="ui pointing below inverted black basic label">
+                className="ui pointing below inverted black basic label">
                 ABV (Alchol By Volume)
               </div>
               <Form.Group widths="equal">
@@ -137,7 +127,7 @@ class BeerModal extends Component {
               </Form.Group>
               <div
                 style={{ textAlign: 'center' }}
-                class="ui pointing below inverted black basic label">
+                className="ui pointing below inverted black basic label">
                 Add A Photo
               </div>
               <Form.Group widths="equal">

@@ -4,15 +4,7 @@ import { bindActionCreators } from 'redux'
 import { fetchBeer } from '../../../redux/actions/fetchBeer'
 import { addFavorite } from '../../../redux/actions/auth_actions'
 import './BeerCard.css'
-import {
-  Container,
-  Card,
-  Button,
-  Image,
-  Icon,
-  Grid,
-  Rating
-} from 'semantic-ui-react'
+import { Card, Button, Image, Rating } from 'semantic-ui-react'
 
 const BeerCard = props => {
   let disabledState = { disabled: false }
@@ -25,7 +17,6 @@ const BeerCard = props => {
     style,
     abv,
     ibu,
-    reviews,
     average_rating
   } = props.beer
 
@@ -36,7 +27,6 @@ const BeerCard = props => {
 
   const handleClick = e => {
     e.preventDefault()
-    console.log('beer card id', id)
     props.fetchBeer(id, props.history)
   }
 

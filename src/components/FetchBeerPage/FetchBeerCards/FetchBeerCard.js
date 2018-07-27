@@ -15,10 +15,8 @@ const FetchBeerCard = props => {
     abv,
     ibu,
     description,
-    reviews,
     average_rating
   } = props.fetchBeer
-  let { userBeers } = props
   let findIfUserFavoritedBeer
   if (props.user.beers) {
     findIfUserFavoritedBeer = props.user.beers.find(a => {
@@ -86,7 +84,6 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({ addFavorite }, dispatch)
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     user: state.auth.user,
     userBeers: state.auth.userBeers,

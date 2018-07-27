@@ -1,7 +1,6 @@
 import env from '../env'
 
 export default function createBeer(id, attributes, token) {
-  console.log(token)
   return fetch(`${env.default}/beers`, {
     method: 'POST',
     headers: {
